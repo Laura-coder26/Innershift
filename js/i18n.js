@@ -1,5 +1,5 @@
 // Innershift — i18n.js
-// Traduzioni in italiano, inglese, francese e spagnolo
+// Traduzioni in italiano, inglese, francese, spagnolo e tedesco
 
 const translations = {
   it: {
@@ -31,7 +31,6 @@ const translations = {
     download_free: 'Scarica gratis',
     footer_tagline: 'Il cambiamento parte da dentro.', footer_copy: '© 2026 Innershift — Tutti i diritti riservati'
   },
-
   en: {
     flag: '🇬🇧', label: 'EN',
     nav_articles: 'Articles', nav_events: 'Events', nav_resources: 'Resources',
@@ -61,37 +60,35 @@ const translations = {
     download_free: 'Download free',
     footer_tagline: 'Change starts from within.', footer_copy: '© 2026 Innershift — All rights reserved'
   },
-
   fr: {
     flag: '🇫🇷', label: 'FR',
     nav_articles: 'Articles', nav_events: 'Événements', nav_resources: 'Ressources',
     hero_label: 'Croissance personnelle',
-    hero_title: 'Le changement', hero_title_em: 'vient de l\'intérieur',
-    hero_sub: 'Articles, ateliers et ressources pour ceux qui veulent vivre avec plus de conscience, d\'intention et de profondeur.',
+    hero_title: 'Le changement', hero_title_em: "vient de l'intérieur",
+    hero_sub: "Articles, ateliers et ressources pour ceux qui veulent vivre avec plus de conscience, d'intention et de profondeur.",
     hero_cta: 'Explorer le contenu',
     articles_title: 'Articles récents', articles_sub: 'Réflexions, guides pratiques et idées pour votre croissance',
     cat_habits: 'Habitudes', cat_mindfulness: 'Pleine conscience', cat_wellness: 'Bien-être',
     post1_title: 'Comment construire des habitudes durables',
     post1_excerpt: 'Les habitudes sont le fondement de la croissance. Découvrez comment les construire à partir de petits gestes quotidiens.',
     post2_title: 'Méditation pour débutants: par où commencer',
-    post2_excerpt: 'Un guide simple et pratique pour commencer à méditer, même si vous n\'avez jamais essayé.',
+    post2_excerpt: "Un guide simple et pratique pour commencer à méditer, même si vous n'avez jamais essayé.",
     post3_title: 'Les 5 piliers du bien-être mental',
-    post3_excerpt: 'Sommeil, mouvement, connexion, but et réflexion: les fondements d\'un esprit équilibré.',
+    post3_excerpt: "Sommeil, mouvement, connexion, but et réflexion: les fondements d'un esprit équilibré.",
     read_more: 'Lire →',
     events_title: 'Prochains événements', events_sub: 'Ateliers, webinaires et sessions en direct',
     event1_title: 'Atelier: Construire des habitudes durables', event1_detail: 'En ligne via Zoom · 10:00 – 12:00 · Gratuit',
     event2_title: 'Webinaire: Journaling profond', event2_detail: 'En ligne · 18:30 – 20:00 · Places limitées',
-    register: 'S\'inscrire',
+    register: "S'inscrire",
     resources_title: 'Ressources gratuites', resources_sub: 'Guides et modèles à télécharger',
     label_book: 'LIVRE', book_desc: 'par James Clear — Le bestseller sur les petites habitudes pour de grands changements.',
     discover_book: 'Découvrir le livre →',
     res1_title: 'Guide de méditation', res1_desc: 'Un guide pratique de 20 pages pour commencer à méditer chaque jour.',
-    res2_title: 'Modèle de journal hebdomadaire', res2_desc: 'Le modèle que j\'utilise chaque semaine pour réfléchir et planifier.',
+    res2_title: 'Modèle de journal hebdomadaire', res2_desc: "Le modèle que j'utilise chaque semaine pour réfléchir et planifier.",
     res3_title: 'Plan bien-être 30 jours', res3_desc: 'Un programme jour par jour pour construire des routines saines et durables.',
     download_free: 'Télécharger gratuitement',
-    footer_tagline: 'Le changement vient de l\'intérieur.', footer_copy: '© 2026 Innershift — Tous droits réservés'
+    footer_tagline: "Le changement vient de l'intérieur.", footer_copy: '© 2026 Innershift — Tous droits réservés'
   },
-
   es: {
     flag: '🇪🇸', label: 'ES',
     nav_articles: 'Artículos', nav_events: 'Eventos', nav_resources: 'Recursos',
@@ -120,6 +117,35 @@ const translations = {
     res3_title: 'Plan bienestar 30 días', res3_desc: 'Un programa día a día para construir rutinas saludables y sostenibles.',
     download_free: 'Descargar gratis',
     footer_tagline: 'El cambio viene desde dentro.', footer_copy: '© 2026 Innershift — Todos los derechos reservados'
+  },
+  de: {
+    flag: '🇩🇪', label: 'DE',
+    nav_articles: 'Artikel', nav_events: 'Veranstaltungen', nav_resources: 'Ressourcen',
+    hero_label: 'Persönliches Wachstum',
+    hero_title: 'Veränderung', hero_title_em: 'beginnt von innen',
+    hero_sub: 'Artikel, Workshops und Ressourcen für alle, die bewusster, intentionaler und tiefer leben möchten.',
+    hero_cta: 'Inhalte entdecken',
+    articles_title: 'Aktuelle Artikel', articles_sub: 'Reflexionen, praktische Leitfäden und Impulse für dein Wachstum',
+    cat_habits: 'Gewohnheiten', cat_mindfulness: 'Achtsamkeit', cat_wellness: 'Wohlbefinden',
+    post1_title: 'Wie man dauerhafte Gewohnheiten aufbaut',
+    post1_excerpt: 'Gewohnheiten sind das Fundament des Wachstums. Entdecke, wie du sie mit kleinen täglichen Schritten aufbaust.',
+    post2_title: 'Meditation für Anfänger: Wo anfangen',
+    post2_excerpt: 'Ein einfacher und praktischer Leitfaden, um mit der Meditation zu beginnen, auch wenn du es nie versucht hast.',
+    post3_title: 'Die 5 Säulen des mentalen Wohlbefindens',
+    post3_excerpt: 'Schlaf, Bewegung, Verbindung, Zweck und Reflexion: die Grundlagen eines ausgeglichenen Geistes.',
+    read_more: 'Lesen →',
+    events_title: 'Kommende Veranstaltungen', events_sub: 'Workshops, Webinare und Live-Sessions',
+    event1_title: 'Workshop: Dauerhafte Gewohnheiten aufbauen', event1_detail: 'Online via Zoom · 10:00 – 12:00 · Kostenlos',
+    event2_title: 'Webinar: Tiefes Journaling', event2_detail: 'Online · 18:30 – 20:00 · Begrenzte Plätze',
+    register: 'Anmelden',
+    resources_title: 'Kostenlose Ressourcen', resources_sub: 'Leitfäden und Vorlagen zum Herunterladen',
+    label_book: 'BUCH', book_desc: 'von James Clear — Der Bestseller über kleine Gewohnheiten für große Veränderungen.',
+    discover_book: 'Buch entdecken →',
+    res1_title: 'Meditationsleitfaden', res1_desc: 'Ein praktischer 20-seitiger Leitfaden, um täglich zu meditieren.',
+    res2_title: 'Wöchentliche Journal-Vorlage', res2_desc: 'Die Vorlage, die ich jede Woche nutze, um zu reflektieren und mit Intention zu planen.',
+    res3_title: '30-Tage-Wohlbefindenplan', res3_desc: 'Ein Tages-für-Tages-Programm für gesunde und nachhaltige Routinen.',
+    download_free: 'Kostenlos herunterladen',
+    footer_tagline: 'Veränderung beginnt von innen.', footer_copy: '© 2026 Innershift — Alle Rechte vorbehalten'
   }
 };
 
@@ -131,10 +157,8 @@ function setLang(lang) {
   localStorage.setItem('innershift_lang', lang);
   applyTranslations();
   closeLangMenu();
-  // Aggiorna bandiera e label
   document.getElementById('current-lang-flag').textContent = translations[lang].flag;
   document.getElementById('current-lang-label').textContent = translations[lang].label;
-  // Aggiorna lang dell'html
   document.documentElement.lang = lang;
 }
 
@@ -147,20 +171,17 @@ function applyTranslations() {
 }
 
 function toggleLangMenu() {
-  const menu = document.getElementById('lang-menu');
-  menu.classList.toggle('open');
+  document.getElementById('lang-menu').classList.toggle('open');
 }
 
 function closeLangMenu() {
   document.getElementById('lang-menu').classList.remove('open');
 }
 
-// Chiudi menu cliccando fuori
 document.addEventListener('click', e => {
   if (!e.target.closest('.lang-selector')) closeLangMenu();
 });
 
-// Applica la lingua salvata al caricamento
 document.addEventListener('DOMContentLoaded', () => {
   setLang(currentLang);
 });
