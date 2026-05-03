@@ -4,11 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Innershift — Crescita Personale</title>
-  <meta name="description" content="Innershift è il tuo spazio di crescita personale. Articoli, video, workshop e risorse per trasformare la tua vita dall'interno." />
-  <meta property="og:title" content="Innershift — Crescita Personale" />
-  <meta property="og:description" content="Il tuo spazio di crescita personale. Articoli, video e workshop." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://innershift.vercel.app" />
+  <meta name="description" content="Innershift è il tuo spazio di crescita personale." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -20,20 +16,33 @@
     <div class="nav-inner">
       <a href="/" class="logo">Innershift</a>
       <div class="nav-links">
-        <a href="#articoli">Articoli</a>
-        <a href="#eventi">Eventi</a>
-        <a href="#risorse">Risorse</a>
+        <a href="#articoli" data-i18n="nav_articles">Articoli</a>
+        <a href="#eventi" data-i18n="nav_events">Eventi</a>
+        <a href="#risorse" data-i18n="nav_resources">Risorse</a>
         <a href="admin/index.html" class="nav-admin">Admin</a>
+        <div class="lang-selector">
+          <button class="lang-btn" onclick="toggleLangMenu()">
+            <span id="current-lang-flag">🇮🇹</span>
+            <span id="current-lang-label">IT</span>
+            <span class="lang-arrow">▾</span>
+          </button>
+          <div class="lang-menu" id="lang-menu">
+            <div class="lang-option" onclick="setLang('it')">🇮🇹 Italiano</div>
+            <div class="lang-option" onclick="setLang('en')">🇬🇧 English</div>
+            <div class="lang-option" onclick="setLang('fr')">🇫🇷 Français</div>
+            <div class="lang-option" onclick="setLang('es')">🇪🇸 Español</div>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
 
   <header class="hero">
     <div class="hero-inner">
-      <p class="hero-label">Crescita personale</p>
-      <h1 class="hero-title">Il cambiamento<br /><em>parte da dentro</em></h1>
-      <p class="hero-sub">Articoli, workshop e risorse per chi vuole vivere con più consapevolezza, intenzione e profondità.</p>
-      <a href="#articoli" class="btn-primary">Esplora i contenuti</a>
+      <p class="hero-label" data-i18n="hero_label">Crescita personale</p>
+      <h1 class="hero-title"><span data-i18n="hero_title">Il cambiamento</span><br /><em data-i18n="hero_title_em">parte da dentro</em></h1>
+      <p class="hero-sub" data-i18n="hero_sub">Articoli, workshop e risorse per chi vuole vivere con più consapevolezza, intenzione e profondità.</p>
+      <a href="#articoli" class="btn-primary" data-i18n="hero_cta">Esplora i contenuti</a>
     </div>
     <div class="hero-deco"></div>
   </header>
@@ -41,35 +50,35 @@
   <section class="section" id="articoli">
     <div class="container">
       <div class="section-head">
-        <h2>Articoli recenti</h2>
-        <p>Riflessioni, guide pratiche e spunti per la tua crescita</p>
+        <h2 data-i18n="articles_title">Articoli recenti</h2>
+        <p data-i18n="articles_sub">Riflessioni, guide pratiche e spunti per la tua crescita</p>
       </div>
       <div class="posts-grid" id="posts-grid">
         <div class="post-card">
-          <div class="post-cat">Abitudini</div>
-          <h3 class="post-title">Come costruire abitudini che durano nel tempo</h3>
-          <p class="post-excerpt">Le abitudini sono il fondamento della crescita. Scopri come costruirle partendo da piccoli gesti quotidiani.</p>
+          <div class="post-cat" data-i18n="cat_habits">Abitudini</div>
+          <h3 class="post-title" data-i18n="post1_title">Come costruire abitudini che durano nel tempo</h3>
+          <p class="post-excerpt" data-i18n="post1_excerpt">Le abitudini sono il fondamento della crescita. Scopri come costruirle partendo da piccoli gesti quotidiani.</p>
           <div class="post-footer">
             <span class="post-date">2 mag 2026</span>
-            <a href="#" class="post-link">Leggi →</a>
+            <a href="#" class="post-link" data-i18n="read_more">Leggi →</a>
           </div>
         </div>
         <div class="post-card">
-          <div class="post-cat">Mindfulness</div>
-          <h3 class="post-title">Meditazione per principianti: da dove cominciare</h3>
-          <p class="post-excerpt">Una guida semplice e pratica per iniziare a meditare, anche se non hai mai provato prima.</p>
+          <div class="post-cat" data-i18n="cat_mindfulness">Mindfulness</div>
+          <h3 class="post-title" data-i18n="post2_title">Meditazione per principianti: da dove cominciare</h3>
+          <p class="post-excerpt" data-i18n="post2_excerpt">Una guida semplice e pratica per iniziare a meditare, anche se non hai mai provato prima.</p>
           <div class="post-footer">
             <span class="post-date">28 apr 2026</span>
-            <a href="#" class="post-link">Leggi →</a>
+            <a href="#" class="post-link" data-i18n="read_more">Leggi →</a>
           </div>
         </div>
         <div class="post-card">
-          <div class="post-cat">Benessere</div>
-          <h3 class="post-title">I 5 pilastri del benessere mentale</h3>
-          <p class="post-excerpt">Sonno, movimento, connessione, scopo e riflessione: le fondamenta di una mente in equilibrio.</p>
+          <div class="post-cat" data-i18n="cat_wellness">Benessere</div>
+          <h3 class="post-title" data-i18n="post3_title">I 5 pilastri del benessere mentale</h3>
+          <p class="post-excerpt" data-i18n="post3_excerpt">Sonno, movimento, connessione, scopo e riflessione: le fondamenta di una mente in equilibrio.</p>
           <div class="post-footer">
             <span class="post-date">20 apr 2026</span>
-            <a href="#" class="post-link">Leggi →</a>
+            <a href="#" class="post-link" data-i18n="read_more">Leggi →</a>
           </div>
         </div>
       </div>
@@ -79,8 +88,8 @@
   <section class="section section-dark" id="eventi">
     <div class="container">
       <div class="section-head light">
-        <h2>Prossimi eventi</h2>
-        <p>Workshop, webinar e sessioni dal vivo</p>
+        <h2 data-i18n="events_title">Prossimi eventi</h2>
+        <p data-i18n="events_sub">Workshop, webinar e sessioni dal vivo</p>
       </div>
       <div class="events-list" id="events-list">
         <div class="event-item">
@@ -89,10 +98,10 @@
             <span class="event-month">MAG</span>
           </div>
           <div class="event-info">
-            <h3>Workshop: Costruire abitudini durature</h3>
-            <p>Online via Zoom · 10:00 – 12:00 · Gratuito</p>
+            <h3 data-i18n="event1_title">Workshop: Costruire abitudini durature</h3>
+            <p data-i18n="event1_detail">Online via Zoom · 10:00 – 12:00 · Gratuito</p>
           </div>
-          <a href="#" class="btn-outline-light">Iscriviti</a>
+          <a href="#" class="btn-outline-light" data-i18n="register">Iscriviti</a>
         </div>
         <div class="event-item">
           <div class="event-date-box">
@@ -100,10 +109,10 @@
             <span class="event-month">MAG</span>
           </div>
           <div class="event-info">
-            <h3>Webinar: Journaling profondo</h3>
-            <p>Online · 18:30 – 20:00 · Posti limitati</p>
+            <h3 data-i18n="event2_title">Webinar: Journaling profondo</h3>
+            <p data-i18n="event2_detail">Online · 18:30 – 20:00 · Posti limitati</p>
           </div>
-          <a href="#" class="btn-outline-light">Iscriviti</a>
+          <a href="#" class="btn-outline-light" data-i18n="register">Iscriviti</a>
         </div>
       </div>
     </div>
@@ -112,34 +121,34 @@
   <section class="section" id="risorse">
     <div class="container">
       <div class="section-head">
-        <h2>Risorse gratuite</h2>
-        <p>Guide e template da scaricare</p>
+        <h2 data-i18n="resources_title">Risorse gratuite</h2>
+        <p data-i18n="resources_sub">Guide e template da scaricare</p>
       </div>
       <div class="resources-grid">
         <div class="resource-card book-card">
           <img src="images/atomic-habits.png" alt="Atomic Habits" class="book-cover" />
-          <div class="resource-icon">LIBRO</div>
+          <div class="resource-icon" data-i18n="label_book">LIBRO</div>
           <h3>Atomic Habits</h3>
-          <p>di James Clear — Il bestseller su piccole abitudini per grandi cambiamenti.</p>
-          <a href="https://www.amazon.it/s?k=atomic+habits" target="_blank" class="btn-download">Scopri il libro →</a>
+          <p data-i18n="book_desc">di James Clear — Il bestseller su piccole abitudini per grandi cambiamenti.</p>
+          <a href="https://www.amazon.it/s?k=atomic+habits" target="_blank" class="btn-download" data-i18n="discover_book">Scopri il libro →</a>
         </div>
         <div class="resource-card">
           <div class="resource-icon">PDF</div>
-          <h3>Guida alla meditazione</h3>
-          <p>Una guida pratica di 20 pagine per iniziare a meditare ogni giorno.</p>
-          <a href="#" class="btn-download">Scarica gratis</a>
+          <h3 data-i18n="res1_title">Guida alla meditazione</h3>
+          <p data-i18n="res1_desc">Una guida pratica di 20 pagine per iniziare a meditare ogni giorno.</p>
+          <a href="#" class="btn-download" data-i18n="download_free">Scarica gratis</a>
         </div>
         <div class="resource-card">
           <div class="resource-icon">DOC</div>
-          <h3>Template journal settimanale</h3>
-          <p>Il template che uso ogni settimana per riflettere e pianificare con intenzione.</p>
-          <a href="#" class="btn-download">Scarica gratis</a>
+          <h3 data-i18n="res2_title">Template journal settimanale</h3>
+          <p data-i18n="res2_desc">Il template che uso ogni settimana per riflettere e pianificare con intenzione.</p>
+          <a href="#" class="btn-download" data-i18n="download_free">Scarica gratis</a>
         </div>
         <div class="resource-card">
           <div class="resource-icon">PDF</div>
-          <h3>Piano benessere 30 giorni</h3>
-          <p>Un programma giorno per giorno per costruire routine sane e sostenibili.</p>
-          <a href="#" class="btn-download">Scarica gratis</a>
+          <h3 data-i18n="res3_title">Piano benessere 30 giorni</h3>
+          <p data-i18n="res3_desc">Un programma giorno per giorno per costruire routine sane e sostenibili.</p>
+          <a href="#" class="btn-download" data-i18n="download_free">Scarica gratis</a>
         </div>
       </div>
     </div>
@@ -150,7 +159,7 @@
       <div class="footer-inner">
         <div>
           <div class="logo">Innershift</div>
-          <p class="footer-tagline">Il cambiamento parte da dentro.</p>
+          <p class="footer-tagline" data-i18n="footer_tagline">Il cambiamento parte da dentro.</p>
         </div>
         <div class="footer-social">
           <a href="#">LinkedIn</a>
@@ -160,11 +169,12 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Innershift — Tutti i diritti riservati</p>
+        <p data-i18n="footer_copy">© 2026 Innershift — Tutti i diritti riservati</p>
       </div>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
