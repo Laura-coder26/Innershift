@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innershift — Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="login-screen">
+    <div class="login-box">
+      <div class="login-logo">Innershift</div>
+      <p class="login-sub">Area amministratore</p>
+      <div class="field-group">
+        <label>Password</label>
+        <input type="password" id="login-pwd" placeholder="Inserisci la password..." />
+      </div>
+      <button class="btn-full" onclick="doLogin()">Accedi</button>
+      <p class="login-hint">Password di default: <strong>innershift2026</strong></p>
+    </div>
+  </div>
+
+  <!-- ADMIN APP -->
+  <div id="admin-app" style="display:none">
+    <nav class="sidebar">
+      <div class="sidebar-logo">
+        <div class="wordmark">Innershift</div>
+        <div class="tagline">Admin Panel</div>
+      </div>
+      <div class="nav-section">Contenuti</div>
+      <div class="nav-item active" onclick="showPanel('dashboard', this)">Dashboard</div>
+      <div class="nav-item" onclick="showPanel('nuovo-post', this)">+ Nuovo post</div>
+      <div class="nav-item" onclick="showPanel('articoli', this)">Tutti gli articoli</div>
+      <div class="nav-section">Gestione</div>
+      <div class="nav-item" onclick="showPanel('eventi', this)">Calendario eventi</div>
+      <div class="nav-item" onclick="showPanel('media', this)">Media & File</div>
+      <div class="sidebar-footer">
+        <a href="../index.html" style="color:rgba(255,255,255,0.4);font-size:12px;text-decoration:none;">← Vai al sito</a>
+        <button onclick="doLogout()" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:12px;cursor:pointer;margin-top:6px;">Esci</button>
+      </div>
+    </nav>
+
+    <main class="main-content">
+
+      <!-- DASHBOARD -->
+      <div class="panel active" id="panel-dashboard">
+        <div class="panel-header"><h1>Dashboard</h1></div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-label">Articoli pubblicati</div><div class="stat-value" id="stat-posts">0</div></div>
+          <div class="stat-card"><div class="stat-label">Bozze</div><div class="stat-value" id="stat-drafts">0</div></div>
+          <div class="stat-card"><div class="stat-label">Prossimi eventi</div><div class="stat-value" id="stat-events">0</div></div>
+          <div class="stat-card"><div class="stat-label">File caricati</div><div class="stat-value" id="stat-files">0</div></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Articoli recenti</div>
+          <div id="recent-posts-list"><p style="color:#888;font-size:13px;padding:16px 0;">Nessun articolo ancora. Creane uno!</p></div>
+        </div>
+      </div>
+
+      <!-- NUOVO POST -->
+      <div class="panel" id="panel-nuovo-post">
+        <div class="panel-header">
+          <h1>Nuovo post</h1>
+          <div style="display:flex;gap:10px;">
+            <button class="btn-outline" onclick="savePost('draft')">Salva bozza</button>
+            <button class="btn-primary" onclick="savePost('published')">Pubblica</button>
+          </div>
+        </div>
+        <div class="editor-layout">
+          <div class="editor-main">
+            <input class="title-input" type="text" id="post-title" placeholder="Titolo dell'articolo..." />
+            <div class="field-group" style="margin-top:16px;">
+              <label>Categoria</label>
+              <select id="post-cat">
+                <option>Abitudini</option>
+                <option>Mindfulness</option>
+                <option>Benessere</option>
+                <option>Produttività</option>
+                <option>Journaling</option>
+                <option>Workshop</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Contenuto</label>
+              <textarea id="post-content" placeholder="Scrivi il tuo articolo qui..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>Video YouTube / Vimeo (URL, opzionale)</label>
+              <input type="text" id="post-video" placeholder="https://youtube.com/watch?v=..." />
+            </div>
+            <div class="ai-box">
+              <div class="ai-box-title">Sintesi AI</div>
+              <div class="ai-box-text" id="ai-summary">La sintesi verrà generata automaticamente dalla tua descrizione.</div>
+              <button class="btn-outline" style="margin-top:10px;font-size:12px;" onclick="generateSummary()">Genera sintesi</button>
+            </div>
+          </div>
+          <div class="editor-sidebar">
+            <div class="side-card">
+              <div class="side-title">Condivisione social</div>
+              <button class="social-btn" onclick="sharePost('LinkedIn')">LinkedIn</button>
+              <button class="social-btn" onclick="sharePost('Instagram')">Instagram</button>
+              <button class="social-btn" onclick="sharePost('Facebook')">Facebook</button>
+              <button class="social-btn" onclick="sharePost('X')">X (Twitter)</button>
+            </div>
+            <div class="side-card">
+              <div class="side-title">SEO</div>
+              <div class="field-group">
+                <label>Meta title</label>
+                <input type="text" id="seo-title" placeholder="Titolo per Google..." />
+              </div>
+              <div class="field-group">
+                <label>Meta description</label>
+                <textarea id="seo-desc" style="min-height:80px;" placeholder="Descrizione per Google..."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICOLI -->
+      <div class="panel" id="panel-articoli">
+        <div class="panel-header">
+          <h1>Tutti gli articoli</h1>
+          <button class="btn-primary" onclick="showPanel('nuovo-post', document.querySelector('[onclick*=nuovo-post]'))">+ Nuovo</button>
+        </div>
+        <div class="card">
+          <div id="all-posts-list"><p style="color:#888;font-size:13px;padding:16px 0;">Nessun articolo ancora.</p></div>
+        </div>
+      </div>
+
+      <!-- EVENTI -->
+      <div class="panel" id="panel-eventi">
+        <div class="panel-header">
+          <h1>Calendario eventi</h1>
+          <button class="btn-primary" onclick="showAddEvent()">+ Nuovo evento</button>
+        </div>
+        <div id="add-event-form" style="display:none;" class="card" style="margin-bottom:20px;">
+          <div class="field-group"><label>Titolo evento</label><input type="text" id="ev-title" placeholder="Es. Workshop meditazione" /></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="field-group"><label>Data</label><input type="date" id="ev-date" /></div>
+            <div class="field-group"><label>Orario</label><input type="text" id="ev-time" placeholder="10:00 – 12:00" /></div>
+          </div>
+          <div class="field-group"><label>Link iscrizione</label><input type="text" id="ev-link" placeholder="https://..." /></div>
+          <button class="btn-primary" onclick="saveEvent()">Salva evento</button>
+        </div>
+        <div class="card">
+          <div id="events-list-admin"><p style="color:#888;font-size:13px;padding:16px 0;">Nessun evento ancora.</p></div>
+        </div>
+      </div>
+
+      <!-- MEDIA -->
+      <div class="panel" id="panel-media">
+        <div class="panel-header"><h1>Media & File</h1></div>
+        <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+          <div style="font-size:32px;margin-bottom:10px;">↑</div>
+          <div>Clicca per caricare un file</div>
+          <div style="font-size:12px;margin-top:4px;opacity:0.6;">PDF, DOC, MP4, JPG, PNG</div>
+          <input type="file" id="file-input" style="display:none" onchange="handleFile(this)" multiple />
+        </div>
+        <div class="card">
+          <div id="files-list"><p style="color:#888;font-size:13px;padding:16px 0;">Nessun file ancora.</p></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>
