@@ -350,3 +350,22 @@ body {
   color: var(--ink); transition: background 0.1s;
 }
 .lang-option:hover { background: var(--cream); }
+
+/* BOOK CARD TESTUALE (senza cover) */
+.book-card-text {
+  text-align: center;
+  background: linear-gradient(135deg, #F7F4EF 0%, #F0EAE0 100%);
+  border-color: var(--warm) !important;
+}
+.book-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+.book-author {
+  font-size: 13px;
+  color: var(--accent);
+  font-style: italic;
+  margin-bottom: 8px;
+  margin-top: -6px;
+}
