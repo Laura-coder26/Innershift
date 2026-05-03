@@ -315,3 +315,14 @@ body {
   .event-item { flex-wrap: wrap; }
   .footer-inner { flex-direction: column; }
 }
+
+/* BOOK CARD */
+.book-card { text-align: center; }
+.book-cover {
+  width: 120px;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  margin-bottom: 16px;
+  transition: transform 0.2s;
+}
+.book-cover:hover { transform: scale(1.04); }
