@@ -369,3 +369,13 @@ body {
   margin-bottom: 8px;
   margin-top: -6px;
 }
+
+/* MINDFUL MEALS COVER */
+.mindful-cover {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  margin-bottom: 14px;
+  transition: transform 0.2s;
+}
+.mindful-cover:hover { transform: scale(1.02); }
