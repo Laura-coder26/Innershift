@@ -382,3 +382,91 @@ body {
   transition: transform 0.2s;
 }
 .mindful-cover:hover { transform: scale(1.02); }
+
+/* ANIMAZIONI SCROLL */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in:nth-child(2) { transition-delay: 0.15s; }
+.fade-in:nth-child(3) { transition-delay: 0.3s; }
+
+/* TESTIMONIANZE */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.review-card {
+  background: var(--white);
+  border: 1px solid var(--stone);
+  border-radius: 16px;
+  padding: 28px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.review-card:hover { transform: translateY(-3px); border-color: var(--warm); }
+.review-stars { color: #D4A843; font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+.review-text {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--accent); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 500; flex-shrink: 0;
+}
+.review-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+.review-role { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* NEWSLETTER */
+.newsletter-section { background: var(--stone); padding: 60px 24px; }
+.newsletter-box {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.newsletter-text { margin-bottom: 28px; }
+.newsletter-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.newsletter-text p { font-size: 15px; color: var(--muted); }
+.newsletter-form {
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  margin-bottom: 12px;
+}
+.newsletter-input {
+  flex: 1; min-width: 220px;
+  padding: 13px 18px;
+  border: 1px solid var(--stone);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.newsletter-input:focus { border-color: var(--accent); }
+.newsletter-note { font-size: 12px; color: var(--muted); }
+.newsletter-success {
+  margin-top: 16px;
+  background: #EAF3DE;
+  color: #3B6D11;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 14px;
+}

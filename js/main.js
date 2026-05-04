@@ -51,3 +51,41 @@ function formatDate(dateStr) {
   if (!dateStr) return '';
   return new Date(dateStr).toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' });
 }
+
+// ─── ANIMAZIONI SCROLL ───────────────────────────────────────────────────────
+function initAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.post-card, .resource-card, .review-card, .event-item, .stat-card').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+}
+
+// ─── NEWSLETTER ──────────────────────────────────────────────────────────────
+function subscribeNewsletter(e) {
+  e.preventDefault();
+  const email = document.getElementById('newsletter-email').value;
+  if (!email) return;
+
+  // Salva email in localStorage
+  const emails = JSON.parse(localStorage.getItem('innershift_emails') || '[]');
+  if (!emails.includes(email)) {
+    emails.push(email);
+    localStorage.setItem('innershift_emails', JSON.stringify(emails));
+  }
+
+  document.querySelector('.newsletter-form').style.display = 'none';
+  document.getElementById('newsletter-success').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initAnimations();
+});
