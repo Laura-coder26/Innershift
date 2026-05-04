@@ -20,18 +20,18 @@
         <a href="#eventi" data-i18n="nav_events">Eventi</a>
         <a href="#risorse" data-i18n="nav_resources">Risorse</a>
         <a href="admin/index.html" class="nav-admin">Admin</a>
-        <div class="lang-selector">
-          <button class="lang-btn" onclick="toggleLangMenu()">
+        <div class="lang-selector" style="position:relative;">
+          <button class="lang-btn" onclick="var m=document.getElementById('lm'); m.style.display=m.style.display==='block'?'none':'block';" style="display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;color:white;">
             <span id="current-lang-flag">🇮🇹</span>
             <span id="current-lang-label">IT</span>
-            <span class="lang-arrow">▾</span>
+            <span>▾</span>
           </button>
-          <div class="lang-menu" id="lang-menu">
-            <div class="lang-option" onclick="setLang('it')">🇮🇹 Italiano</div>
-            <div class="lang-option" onclick="setLang('en')">🇬🇧 English</div>
-            <div class="lang-option" onclick="setLang('fr')">🇫🇷 Français</div>
-            <div class="lang-option" onclick="setLang('es')">🇪🇸 Español</div>
-            <div class="lang-option" onclick="setLang('de')">🇩🇪 Deutsch</div>
+          <div id="lm" style="display:none;position:absolute;top:calc(100% + 6px);right:0;background:white;border:1px solid #E8E2D9;border-radius:10px;overflow:hidden;min-width:150px;box-shadow:0 8px 24px rgba(0,0,0,0.15);z-index:9999;">
+            <div onclick="setLang('it');document.getElementById('lm').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇮🇹 Italiano</div>
+            <div onclick="setLang('en');document.getElementById('lm').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇬🇧 English</div>
+            <div onclick="setLang('fr');document.getElementById('lm').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇫🇷 Français</div>
+            <div onclick="setLang('es');document.getElementById('lm').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇪🇸 Español</div>
+            <div onclick="setLang('de');document.getElementById('lm').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇩🇪 Deutsch</div>
           </div>
         </div>
       </div>
