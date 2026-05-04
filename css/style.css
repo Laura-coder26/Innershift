@@ -343,11 +343,11 @@ body {
 .lang-arrow { font-size: 10px; color: var(--muted); }
 .lang-menu {
   display: none; position: absolute; top: calc(100% + 6px); right: 0;
-  background: var(--white); border: 1px solid var(--stone);
-  border-radius: 10px; overflow: hidden; min-width: 140px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1); z-index: 200;
+  background: #FFFFFF; border: 1px solid #E8E2D9;
+  border-radius: 10px; overflow: hidden; min-width: 150px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15); z-index: 9999;
 }
-.lang-menu.open { display: block; }
+.lang-menu.open { display: block !important; }
 .lang-option {
   padding: 10px 14px; font-size: 13px; cursor: pointer;
   color: var(--ink); transition: background 0.1s;
