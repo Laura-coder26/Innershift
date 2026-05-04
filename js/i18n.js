@@ -250,3 +250,4 @@ document.addEventListener('click', e => {
 document.addEventListener('DOMContentLoaded', () => {
   setLang(currentLang);
 });
+
