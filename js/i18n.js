@@ -29,6 +29,7 @@ const translations = {
     res2_title: 'Template journal settimanale', res2_desc: 'Il template che uso ogni settimana per riflettere e pianificare con intenzione.',
     res3_title: 'Piano benessere 30 giorni', res3_desc: 'Un programma giorno per giorno per costruire routine sane e sostenibili.',
     download_free: 'Scarica gratis',
+    mindful_desc: 'Il mio libro di ricette senza farine integrali e senza lattosio — gustoso, sano e consapevole.',
     footer_tagline: 'Il cambiamento parte da dentro.', footer_copy: '© 2026 Innershift — Tutti i diritti riservati'
   },
   en: {
@@ -58,6 +59,7 @@ const translations = {
     res2_title: 'Weekly journal template', res2_desc: 'The template I use every week to reflect and plan with intention.',
     res3_title: '30-day wellness plan', res3_desc: 'A day-by-day program to build healthy and sustainable routines.',
     download_free: 'Download free',
+    mindful_desc: 'My recipe book with no whole grain flours and no lactose — tasty, healthy and mindful.',
     footer_tagline: 'Change starts from within.', footer_copy: '© 2026 Innershift — All rights reserved'
   },
   fr: {
@@ -87,6 +89,7 @@ const translations = {
     res2_title: 'Modèle de journal hebdomadaire', res2_desc: "Le modèle que j'utilise chaque semaine pour réfléchir et planifier.",
     res3_title: 'Plan bien-être 30 jours', res3_desc: 'Un programme jour par jour pour construire des routines saines et durables.',
     download_free: 'Télécharger gratuitement',
+    mindful_desc: 'Mon livre de recettes sans farines complètes et sans lactose — savoureux, sain et conscient.',
     footer_tagline: "Le changement vient de l'intérieur.", footer_copy: '© 2026 Innershift — Tous droits réservés'
   },
   es: {
@@ -116,6 +119,7 @@ const translations = {
     res2_title: 'Plantilla de diario semanal', res2_desc: 'La plantilla que uso cada semana para reflexionar y planificar con intención.',
     res3_title: 'Plan bienestar 30 días', res3_desc: 'Un programa día a día para construir rutinas saludables y sostenibles.',
     download_free: 'Descargar gratis',
+    mindful_desc: 'Mi libro de recetas sin harinas integrales y sin lactosa — sabroso, saludable y consciente.',
     footer_tagline: 'El cambio viene desde dentro.', footer_copy: '© 2026 Innershift — Todos los derechos reservados'
   },
   de: {
@@ -145,6 +149,7 @@ const translations = {
     res2_title: 'Wöchentliche Journal-Vorlage', res2_desc: 'Die Vorlage, die ich jede Woche nutze, um zu reflektieren und mit Intention zu planen.',
     res3_title: '30-Tage-Wohlbefindenplan', res3_desc: 'Ein Tages-für-Tages-Programm für gesunde und nachhaltige Routinen.',
     download_free: 'Kostenlos herunterladen',
+    mindful_desc: 'Mein Rezeptbuch ohne Vollkornmehl und ohne Laktose — lecker, gesund und bewusst.',
     footer_tagline: 'Veränderung beginnt von innen.', footer_copy: '© 2026 Innershift — Alle Rechte vorbehalten'
   }
 };
