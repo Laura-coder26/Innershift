@@ -69,7 +69,7 @@ body {
   padding: 100px 24px 60px;
   position: relative;
   overflow: hidden;
-  background-image: url('../images/hero-forest.png');
+  background-image: url('../images/hero-mountain.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -502,4 +502,3 @@ body {
 @media (max-width: 640px) {
   .video-grid { grid-template-columns: 1fr; }
 }
-
