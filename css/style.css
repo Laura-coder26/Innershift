@@ -1,15 +1,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cream: #F7F4EF;
-  --stone: #E8E2D9;
-  --warm: #C4A882;
-  --accent: #8B6F4E;
-  --dark: #1C1A17;
-  --ink: #2E2B26;
-  --muted: #8A8278;
+  --cream: #F0EDE4;
+  --stone: #D8E4DC;
+  --warm: #7BA7BC;
+  --accent: #4A7C6F;
+  --dark: #2C3E35;
+  --ink: #2C3E35;
+  --muted: #6B8F7E;
   --white: #FFFFFF;
-  --font-display: 'Cormorant Garamond', serif;
+  --font-display: 'Libre Baskerville', serif;
   --font-body: 'DM Sans', sans-serif;
 }
 
@@ -501,4 +501,39 @@ body {
 
 @media (max-width: 640px) {
   .video-grid { grid-template-columns: 1fr; }
+}
+
+/* QUOTE SECTIONS */
+.quote-section {
+  background: var(--dark);
+  padding: 60px 24px;
+  text-align: center;
+}
+.quote-section-light {
+  background: var(--stone);
+}
+.site-quote {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.site-quote p {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.quote-section-light .site-quote p {
+  color: var(--dark);
+}
+.site-quote cite {
+  font-size: 13px;
+  color: var(--warm);
+  letter-spacing: 0.08em;
+  font-style: normal;
+}
+.quote-section-light .site-quote cite {
+  color: var(--accent);
 }
