@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Innershift — Admin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/admin.css" />
 </head>
 <body>
@@ -19,7 +19,6 @@
         <input type="password" id="login-pwd" placeholder="Inserisci la password..." />
       </div>
       <button class="btn-full" onclick="doLogin()">Accedi</button>
-      <p class="login-hint">Password di default: <strong>innershift2026</strong></p>
     </div>
   </div>
 
@@ -31,12 +30,17 @@
         <div class="tagline">Admin Panel</div>
       </div>
       <div class="nav-section">Contenuti</div>
-      <div class="nav-item active" onclick="showPanel('dashboard', this)">Dashboard</div>
-      <div class="nav-item" onclick="showPanel('nuovo-post', this)">+ Nuovo post</div>
-      <div class="nav-item" onclick="showPanel('articoli', this)">Tutti gli articoli</div>
+      <div class="nav-item active" onclick="showPanel('dashboard', this)">📊 Dashboard</div>
+      <div class="nav-item" onclick="showPanel('nuovo-post', this)">✏️ Nuovo post</div>
+      <div class="nav-item" onclick="showPanel('articoli', this)">📄 Tutti gli articoli</div>
       <div class="nav-section">Gestione</div>
-      <div class="nav-item" onclick="showPanel('eventi', this)">Calendario eventi</div>
-      <div class="nav-item" onclick="showPanel('media', this)">Media & File</div>
+      <div class="nav-item" onclick="showPanel('homepage', this)">🏠 Homepage</div>
+      <div class="nav-item" onclick="showPanel('libri', this)">📚 Libri consigliati</div>
+      <div class="nav-item" onclick="showPanel('citazioni', this)">💬 Citazioni</div>
+      <div class="nav-item" onclick="showPanel('eventi', this)">📅 Calendario eventi</div>
+      <div class="nav-item" onclick="showPanel('media', this)">🖼 Media & File</div>
+      <div class="nav-section">Impostazioni</div>
+      <div class="nav-item" onclick="showPanel('password', this)">🔒 Cambia password</div>
       <div class="sidebar-footer">
         <a href="../index.html" style="color:rgba(255,255,255,0.4);font-size:12px;text-decoration:none;">← Vai al sito</a>
         <button onclick="doLogout()" style="background:none;border:none;color:rgba(255,255,255,0.3);font-size:12px;cursor:pointer;margin-top:6px;">Esci</button>
@@ -75,12 +79,8 @@
             <div class="field-group" style="margin-top:16px;">
               <label>Categoria</label>
               <select id="post-cat">
-                <option>Abitudini</option>
-                <option>Mindfulness</option>
-                <option>Benessere</option>
-                <option>Produttività</option>
-                <option>Journaling</option>
-                <option>Workshop</option>
+                <option>Abitudini</option><option>Mindfulness</option><option>Benessere</option>
+                <option>Produttività</option><option>Journaling</option><option>Workshop</option>
               </select>
             </div>
             <div class="field-group">
@@ -88,12 +88,12 @@
               <textarea id="post-content" placeholder="Scrivi il tuo articolo qui..."></textarea>
             </div>
             <div class="field-group">
-              <label>Video YouTube / Vimeo (URL, opzionale)</label>
+              <label>Video YouTube / Vimeo (opzionale)</label>
               <input type="text" id="post-video" placeholder="https://youtube.com/watch?v=..." />
             </div>
             <div class="ai-box">
               <div class="ai-box-title">Sintesi AI</div>
-              <div class="ai-box-text" id="ai-summary">La sintesi verrà generata automaticamente dalla tua descrizione.</div>
+              <div class="ai-box-text" id="ai-summary">La sintesi verrà generata automaticamente.</div>
               <button class="btn-outline" style="margin-top:10px;font-size:12px;" onclick="generateSummary()">Genera sintesi</button>
             </div>
           </div>
@@ -131,6 +131,75 @@
         </div>
       </div>
 
+      <!-- HOMEPAGE -->
+      <div class="panel" id="panel-homepage">
+        <div class="panel-header"><h1>Gestione Homepage</h1></div>
+        <div class="card" style="margin-bottom:20px;">
+          <div class="card-title">Testo Hero (la grande scritta in cima)</div>
+          <div class="field-group">
+            <label>Titolo principale</label>
+            <input type="text" id="hero-title" placeholder="Es. Il cambiamento" />
+          </div>
+          <div class="field-group">
+            <label>Titolo in corsivo</label>
+            <input type="text" id="hero-em" placeholder="Es. parte da dentro" />
+          </div>
+          <div class="field-group">
+            <label>Sottotitolo</label>
+            <textarea id="hero-sub" style="min-height:80px;" placeholder="Es. Articoli, workshop e risorse..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Testo pulsante</label>
+            <input type="text" id="hero-cta" placeholder="Es. Esplora i contenuti" />
+          </div>
+          <button class="btn-primary" style="margin-top:12px;" onclick="saveHomepage()">Salva testi homepage</button>
+        </div>
+        <div class="card">
+          <div class="card-title">Link Social (footer)</div>
+          <div class="field-group"><label>LinkedIn URL</label><input type="text" id="social-linkedin" placeholder="https://linkedin.com/in/..." /></div>
+          <div class="field-group"><label>Instagram URL</label><input type="text" id="social-instagram" placeholder="https://instagram.com/..." /></div>
+          <div class="field-group"><label>Facebook URL</label><input type="text" id="social-facebook" placeholder="https://facebook.com/..." /></div>
+          <button class="btn-primary" style="margin-top:12px;" onclick="saveSocial()">Salva link social</button>
+        </div>
+      </div>
+
+      <!-- LIBRI -->
+      <div class="panel" id="panel-libri">
+        <div class="panel-header">
+          <h1>Libri consigliati</h1>
+          <button class="btn-primary" onclick="showAddBook()">+ Aggiungi libro</button>
+        </div>
+        <div id="add-book-form" style="display:none;" class="card" style="margin-bottom:20px;">
+          <div class="field-group"><label>Titolo libro</label><input type="text" id="book-title" placeholder="Es. Atomic Habits" /></div>
+          <div class="field-group"><label>Autore</label><input type="text" id="book-author" placeholder="Es. James Clear" /></div>
+          <div class="field-group"><label>Descrizione</label><textarea id="book-desc" style="min-height:80px;" placeholder="Breve descrizione del libro..."></textarea></div>
+          <div class="field-group"><label>Link Amazon</label><input type="text" id="book-link" placeholder="https://amazon.it/dp/..." /></div>
+          <div class="field-group"><label>Emoji icona</label><input type="text" id="book-emoji" placeholder="Es. 📖" value="📖" /></div>
+          <button class="btn-primary" onclick="saveBook()">Aggiungi libro</button>
+        </div>
+        <div class="card">
+          <div class="card-title">Libri nel sito</div>
+          <div id="books-list"><p style="color:#888;font-size:13px;padding:16px 0;">I libri aggiunti appariranno qui.</p></div>
+        </div>
+      </div>
+
+      <!-- CITAZIONI -->
+      <div class="panel" id="panel-citazioni">
+        <div class="panel-header">
+          <h1>Citazioni ispirazionali</h1>
+          <button class="btn-primary" onclick="showAddQuote()">+ Aggiungi citazione</button>
+        </div>
+        <div id="add-quote-form" style="display:none;" class="card" style="margin-bottom:20px;">
+          <div class="field-group"><label>Citazione</label><textarea id="quote-text" style="min-height:80px;" placeholder="Es. La vita non si misura..."></textarea></div>
+          <div class="field-group"><label>Autore</label><input type="text" id="quote-author" placeholder="Es. Maya Angelou" /></div>
+          <button class="btn-primary" onclick="saveQuote()">Salva citazione</button>
+        </div>
+        <div class="card">
+          <div class="card-title">Citazioni salvate</div>
+          <div id="quotes-list"><p style="color:#888;font-size:13px;padding:16px 0;">Nessuna citazione ancora.</p></div>
+        </div>
+      </div>
+
       <!-- EVENTI -->
       <div class="panel" id="panel-eventi">
         <div class="panel-header">
@@ -155,7 +224,7 @@
       <div class="panel" id="panel-media">
         <div class="panel-header"><h1>Media & File</h1></div>
         <div class="upload-zone" onclick="document.getElementById('file-input').click()">
-          <div style="font-size:32px;margin-bottom:10px;">↑</div>
+          <div style="font-size:32px;margin-bottom:10px;">⬆</div>
           <div>Clicca per caricare un file</div>
           <div style="font-size:12px;margin-top:4px;opacity:0.6;">PDF, DOC, MP4, JPG, PNG</div>
           <input type="file" id="file-input" style="display:none" onchange="handleFile(this)" multiple />
@@ -165,11 +234,21 @@
         </div>
       </div>
 
+      <!-- PASSWORD -->
+      <div class="panel" id="panel-password">
+        <div class="panel-header"><h1>Cambia password</h1></div>
+        <div class="card" style="max-width:400px;">
+          <div class="field-group"><label>Password attuale</label><input type="password" id="pwd-current" placeholder="Password attuale..." /></div>
+          <div class="field-group"><label>Nuova password</label><input type="password" id="pwd-new" placeholder="Nuova password..." /></div>
+          <div class="field-group"><label>Conferma nuova password</label><input type="password" id="pwd-confirm" placeholder="Ripeti la nuova password..." /></div>
+          <button class="btn-primary" style="margin-top:12px;" onclick="changePassword()">Aggiorna password</button>
+        </div>
+      </div>
+
     </main>
   </div>
 
   <div class="toast" id="toast"></div>
-
   <script src="../js/admin.js"></script>
 </body>
 </html>

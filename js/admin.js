@@ -7,7 +7,8 @@ const ADMIN_PASSWORD = 'innershift2026';
 
 function doLogin() {
   const pwd = document.getElementById('login-pwd').value;
-  if (pwd === ADMIN_PASSWORD) {
+  const storedPwd = localStorage.getItem('innershift_password') || ADMIN_PASSWORD;
+  if (pwd === storedPwd) {
     sessionStorage.setItem('innershift_auth', '1');
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('admin-app').style.display = 'flex';
@@ -335,3 +336,172 @@ function showToast(msg) {
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 2800);
 }
+
+// ─── HOMEPAGE ────────────────────────────────────────────────────────────────
+
+function saveHomepage() {
+  const data = {
+    heroTitle: document.getElementById('hero-title').value.trim(),
+    heroEm: document.getElementById('hero-em').value.trim(),
+    heroSub: document.getElementById('hero-sub').value.trim(),
+    heroCta: document.getElementById('hero-cta').value.trim(),
+  };
+  if (!data.heroTitle) { showToast('Inserisci almeno il titolo!'); return; }
+  localStorage.setItem('innershift_homepage', JSON.stringify(data));
+  showToast('Testi homepage salvati! Ricarica il sito per vederli.');
+}
+
+function saveSocial() {
+  const data = {
+    linkedin: document.getElementById('social-linkedin').value.trim(),
+    instagram: document.getElementById('social-instagram').value.trim(),
+    facebook: document.getElementById('social-facebook').value.trim(),
+  };
+  localStorage.setItem('innershift_social', JSON.stringify(data));
+  showToast('Link social salvati!');
+}
+
+function loadHomepageForm() {
+  const data = JSON.parse(localStorage.getItem('innershift_homepage') || '{}');
+  if (data.heroTitle) document.getElementById('hero-title').value = data.heroTitle;
+  if (data.heroEm) document.getElementById('hero-em').value = data.heroEm;
+  if (data.heroSub) document.getElementById('hero-sub').value = data.heroSub;
+  if (data.heroCta) document.getElementById('hero-cta').value = data.heroCta;
+  const social = JSON.parse(localStorage.getItem('innershift_social') || '{}');
+  if (social.linkedin) document.getElementById('social-linkedin').value = social.linkedin;
+  if (social.instagram) document.getElementById('social-instagram').value = social.instagram;
+  if (social.facebook) document.getElementById('social-facebook').value = social.facebook;
+}
+
+// ─── LIBRI ────────────────────────────────────────────────────────────────────
+
+function getBooks() { return JSON.parse(localStorage.getItem('innershift_books') || '[]'); }
+function saveBooks(b) { localStorage.setItem('innershift_books', JSON.stringify(b)); }
+
+function showAddBook() {
+  const f = document.getElementById('add-book-form');
+  f.style.display = f.style.display === 'none' ? 'block' : 'none';
+}
+
+function saveBook() {
+  const title = document.getElementById('book-title').value.trim();
+  const author = document.getElementById('book-author').value.trim();
+  const desc = document.getElementById('book-desc').value.trim();
+  const link = document.getElementById('book-link').value.trim();
+  const emoji = document.getElementById('book-emoji').value.trim() || '📖';
+  if (!title || !author) { showToast('Inserisci titolo e autore!'); return; }
+  const books = getBooks();
+  books.push({ id: Date.now(), title, author, desc, link, emoji });
+  saveBooks(books);
+  document.getElementById('add-book-form').style.display = 'none';
+  document.getElementById('book-title').value = '';
+  document.getElementById('book-author').value = '';
+  document.getElementById('book-desc').value = '';
+  document.getElementById('book-link').value = '';
+  renderBooks();
+  showToast('Libro aggiunto! Apparirà nel sito.');
+}
+
+function deleteBook(id) {
+  if (!confirm('Eliminare questo libro?')) return;
+  saveBooks(getBooks().filter(b => b.id !== id));
+  renderBooks();
+  showToast('Libro eliminato.');
+}
+
+function renderBooks() {
+  const books = getBooks();
+  const list = document.getElementById('books-list');
+  if (!list) return;
+  if (books.length === 0) {
+    list.innerHTML = '<p style="color:#888;font-size:13px;padding:16px 0;">Nessun libro aggiunto ancora.</p>';
+    return;
+  }
+  list.innerHTML = books.map(b => `
+    <div class="post-row">
+      <div class="post-row-meta">
+        <div class="post-row-title">${b.emoji} ${b.title}</div>
+        <div class="post-row-date">${b.author}</div>
+      </div>
+      <button class="btn-del" onclick="deleteBook(${b.id})">×</button>
+    </div>
+  `).join('');
+}
+
+// ─── CITAZIONI ────────────────────────────────────────────────────────────────
+
+function getQuotes() { return JSON.parse(localStorage.getItem('innershift_quotes') || '[]'); }
+function saveQuotes(q) { localStorage.setItem('innershift_quotes', JSON.stringify(q)); }
+
+function showAddQuote() {
+  const f = document.getElementById('add-quote-form');
+  f.style.display = f.style.display === 'none' ? 'block' : 'none';
+}
+
+function saveQuote() {
+  const text = document.getElementById('quote-text').value.trim();
+  const author = document.getElementById('quote-author').value.trim();
+  if (!text) { showToast('Inserisci la citazione!'); return; }
+  const quotes = getQuotes();
+  quotes.push({ id: Date.now(), text, author });
+  saveQuotes(quotes);
+  document.getElementById('add-quote-form').style.display = 'none';
+  document.getElementById('quote-text').value = '';
+  document.getElementById('quote-author').value = '';
+  renderQuotes();
+  showToast('Citazione salvata!');
+}
+
+function deleteQuote(id) {
+  if (!confirm('Eliminare questa citazione?')) return;
+  saveQuotes(getQuotes().filter(q => q.id !== id));
+  renderQuotes();
+  showToast('Citazione eliminata.');
+}
+
+function renderQuotes() {
+  const quotes = getQuotes();
+  const list = document.getElementById('quotes-list');
+  if (!list) return;
+  if (quotes.length === 0) {
+    list.innerHTML = '<p style="color:#888;font-size:13px;padding:16px 0;">Nessuna citazione ancora.</p>';
+    return;
+  }
+  list.innerHTML = quotes.map(q => `
+    <div class="post-row">
+      <div class="post-row-meta">
+        <div class="post-row-title" style="font-style:italic;">"${q.text.substring(0, 60)}..."</div>
+        <div class="post-row-date">— ${q.author || 'Anonimo'}</div>
+      </div>
+      <button class="btn-del" onclick="deleteQuote(${q.id})">×</button>
+    </div>
+  `).join('');
+}
+
+// ─── PASSWORD ────────────────────────────────────────────────────────────────
+
+function changePassword() {
+  const current = document.getElementById('pwd-current').value;
+  const newPwd = document.getElementById('pwd-new').value;
+  const confirm = document.getElementById('pwd-confirm').value;
+  const stored = localStorage.getItem('innershift_password') || 'innershift2026';
+  if (current !== stored) { showToast('Password attuale errata!'); return; }
+  if (newPwd.length < 6) { showToast('La nuova password deve avere almeno 6 caratteri!'); return; }
+  if (newPwd !== confirm) { showToast('Le password non coincidono!'); return; }
+  localStorage.setItem('innershift_password', newPwd);
+  document.getElementById('pwd-current').value = '';
+  document.getElementById('pwd-new').value = '';
+  document.getElementById('pwd-confirm').value = '';
+  showToast('Password aggiornata con successo!');
+}
+
+// ─── AGGIORNA SHOWPANEL ───────────────────────────────────────────────────────
+const _origShowPanel = showPanel;
+// Override per caricare dati nelle nuove sezioni
+const origShowPanel = showPanel;
+showPanel = function(name, el) {
+  origShowPanel(name, el);
+  if (name === 'homepage') loadHomepageForm();
+  if (name === 'libri') renderBooks();
+  if (name === 'citazioni') renderQuotes();
+};
