@@ -423,5 +423,43 @@ function subscribeNewsletter(e) {
 </script>
 <script src="js/supabase.js"></script>
 <script src="js/main.js"></script>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" style="display:none;">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        <strong>🍪 Questo sito usa i cookie</strong>
+        <p>Utilizziamo cookie tecnici e Google Analytics per migliorare la tua esperienza e analizzare il traffico. Nessun dato viene venduto a terzi.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button class="cookie-btn-accept" onclick="acceptCookies()">Accetta tutti</button>
+        <button class="cookie-btn-decline" onclick="declineCookies()">Solo essenziali</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // Cookie banner logic
+  function showCookieBanner() {
+    if (!localStorage.getItem('innershift_cookie_choice')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+  }
+  function acceptCookies() {
+    localStorage.setItem('innershift_cookie_choice', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+  function declineCookies() {
+    localStorage.setItem('innershift_cookie_choice', 'declined');
+    document.getElementById('cookie-banner').style.display = 'none';
+    // Disabilita Google Analytics
+    window['ga-disable-G-VJ0VPEPVEX'] = true;
+  }
+  window.addEventListener('load', showCookieBanner);
+  // Se ha già rifiutato, disabilita GA
+  if (localStorage.getItem('innershift_cookie_choice') === 'declined') {
+    window['ga-disable-G-VJ0VPEPVEX'] = true;
+  }
+  </script>
 </body>
 </html>
