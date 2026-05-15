@@ -590,3 +590,72 @@ body {
   .cookie-buttons { width: 100%; }
   .cookie-btn-accept, .cookie-btn-decline { flex: 1; text-align: center; }
 }
+
+/* ARMOCROMIA */
+.armo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.armo-card {
+  background: var(--white);
+  border: 1px solid var(--stone);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.armo-card:hover { transform: translateY(-3px); border-color: var(--warm); }
+.armo-season {
+  font-size: 48px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.armo-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.armo-card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+.armo-colors { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+.color-dot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.15s;
+  cursor: pointer;
+}
+.color-dot:hover { transform: scale(1.2); }
+.armo-cta-card { background: linear-gradient(135deg, var(--cream) 0%, #E8F0EE 100%); border-color: var(--accent); }
+
+/* SHOP */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 20px;
+}
+.shop-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.shop-card:hover { background: rgba(255,255,255,0.1); }
+.shop-preview { font-size: 52px; margin-bottom: 16px; line-height: 1; }
+.shop-card h3 { font-size: 18px; font-weight: 500; color: var(--white); margin-bottom: 10px; }
+.shop-card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 16px; }
+.shop-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+}
