@@ -110,6 +110,27 @@
   </section>
 
 
+
+  <!-- CITAZIONI -->
+  <div class="quotes-strip">
+    <div class="container">
+      <div class="quotes-grid">
+        <blockquote class="strip-quote">
+          <p data-i18n="quote1">"Non cercare di essere migliore degli altri. Cerca di essere migliore di te stesso."</p>
+          <cite>— William Faulkner</cite>
+        </blockquote>
+        <blockquote class="strip-quote">
+          <p data-i18n="quote2">"Il momento presente è l'unico in cui possiamo vivere, amare, fare e crescere."</p>
+          <cite>— Lao Tzu</cite>
+        </blockquote>
+        <blockquote class="strip-quote">
+          <p data-i18n="quote3">"La vita non si misura con i respiri che facciamo, ma con i momenti che ci tolgono il respiro."</p>
+          <cite>— Maya Angelou</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
   <section class="section section-dark" id="eventi">
     <div class="container">
       <div class="section-head light">
@@ -429,21 +450,7 @@
         </div>
       </div>
 
-      <!-- CITAZIONI NEL FOOTER -->
-      <div class="footer-quotes">
-        <blockquote class="footer-quote">
-          <p data-i18n="quote1">"Non cercare di essere migliore degli altri. Cerca di essere migliore di te stesso."</p>
-          <cite>— William Faulkner</cite>
-        </blockquote>
-        <blockquote class="footer-quote">
-          <p data-i18n="quote2">"Il momento presente è l'unico in cui possiamo vivere, amare, fare e crescere."</p>
-          <cite>— Lao Tzu</cite>
-        </blockquote>
-        <blockquote class="footer-quote">
-          <p data-i18n="quote3">"La vita non si misura con i respiri che facciamo, ma con i momenti che ci tolgono il respiro."</p>
-          <cite>— Maya Angelou</cite>
-        </blockquote>
-      </div>
+
       <div class="footer-bottom">
         <p data-i18n="footer_copy">© 2026 Innershift — Tutti i diritti riservati</p>
       </div>
@@ -574,5 +581,41 @@ function subscribeNewsletter(e) {
   }
   @media (max-width: 768px) {
     .footer-quotes { grid-template-columns: 1fr; gap: 1.2rem; }
+  }
+
+  /* QUOTES STRIP */
+  .quotes-strip {
+    background: var(--cream);
+    padding: 3rem 0;
+    border-top: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+  }
+  .quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .strip-quote {
+    margin: 0; padding: 0;
+    border-left: 3px solid var(--accent);
+    padding-left: 1.2rem;
+  }
+  .strip-quote p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.7;
+    margin: 0 0 0.5rem;
+  }
+  .strip-quote cite {
+    font-style: normal;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 768px) {
+    .quotes-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   }
 
