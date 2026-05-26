@@ -30,7 +30,7 @@
         <a href="armocromia.html">Armocromia</a>
         <a href="#shop">Shop</a>
         <a href="chi-sono.html" data-i18n="nav_about">Chi sono</a>
-        <a href="admin/index.html" class="nav-admin">Admin</a>
+        <a href="admin/index.html" class="nav-admin" style="display:none">Admin</a>
         <div class="lang-selector" style="position:relative;">
           <button class="lang-btn" onclick="var m=document.getElementById('lm'); m.style.display=m.style.display==='block'?'none':'block';" style="display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;color:white;">
             <span id="current-lang-flag">🇮🇹</span>
@@ -51,7 +51,10 @@
 
   <header class="hero">
     <div class="hero-inner">
-      <p class="hero-label" data-i18n="hero_label">Crescita personale</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px;">
+        <img src="images/IMG_4321.jpg" alt="Laura" style="width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(255,255,255,0.6);box-shadow:0 2px 12px rgba(0,0,0,0.2);">
+        <p class="hero-label" data-i18n="hero_label" style="margin-bottom:0;">Crescita personale</p>
+      </div>
       <h1 class="hero-title"><span data-i18n="hero_title">Il cambiamento</span><br /><em data-i18n="hero_title_em">parte da dentro</em></h1>
       <p class="hero-sub" data-i18n="hero_sub">Articoli, workshop e risorse per chi vuole vivere con più consapevolezza, intenzione e profondità.</p>
       <a href="#articoli" class="btn-primary" data-i18n="hero_cta">Esplora i contenuti</a>
@@ -106,14 +109,6 @@
     </div>
   </section>
 
-  <div class="quote-section">
-    <div class="container">
-      <blockquote class="site-quote">
-        <p data-i18n="quote1">"Non cercare di essere migliore degli altri. Cerca di essere migliore di te stesso."</p>
-        <cite>— William Faulkner</cite>
-      </blockquote>
-    </div>
-  </div>
 
   <section class="section section-dark" id="eventi">
     <div class="container">
@@ -209,14 +204,6 @@
     </div>
   </section>
 
-  <div class="quote-section quote-section-light">
-    <div class="container">
-      <blockquote class="site-quote">
-        <p data-i18n="quote2">"Il momento presente è l'unico in cui possiamo vivere, amare, fare e crescere."</p>
-        <cite>— Lao Tzu</cite>
-      </blockquote>
-    </div>
-  </div>
 
   <!-- VIDEO -->
   <section class="section section-dark" id="video">
@@ -276,14 +263,6 @@
     </div>
   </section>
 
-  <div class="quote-section">
-    <div class="container">
-      <blockquote class="site-quote">
-        <p data-i18n="quote3">"La vita non si misura con i respiri che facciamo, ma con i momenti che ci tolgono il respiro."</p>
-        <cite>— Maya Angelou</cite>
-      </blockquote>
-    </div>
-  </div>
 
   <!-- ARMOCROMIA PREVIEW -->
   <section class="section" id="armocromia">
@@ -330,44 +309,6 @@
   </section>
 
   <!-- SHOP -->
-  <section class="section section-dark" id="shop">
-    <div class="container">
-      <div class="section-head light" style="text-align:center;">
-        <h2 data-i18n="shop_title">Shop — I miei disegni</h2>
-        <p data-i18n="shop_sub">Tazze, magliette e pochette con illustrazioni originali</p>
-      </div>
-      <div class="shop-grid">
-        <div class="shop-card">
-          <div class="shop-img" style="background-image:url('images/tazza-shop.jpg.jpg')"></div>
-          <div class="shop-body">
-            <h3 data-i18n="shop_mugs_title">Tazze</h3>
-            <p data-i18n="shop_mugs_desc">Inizia la giornata con una tazza unica, illustrata a mano con messaggi di crescita personale.</p>
-            <span class="shop-badge" data-i18n="shop_coming_soon">Prossimamente</span>
-          </div>
-        </div>
-        <div class="shop-card">
-          <div class="shop-img" style="background-image:url('images/tshirt-shop.jpg.JPG')"></div>
-          <div class="shop-body">
-            <h3 data-i18n="shop_tshirts_title">Magliette</h3>
-            <p data-i18n="shop_tshirts_desc">Indossa la tua intenzione quotidiana. Design minimal con frasi ispirazionali e illustrazioni originali.</p>
-            <span class="shop-badge" data-i18n="shop_coming_soon">Prossimamente</span>
-          </div>
-        </div>
-        <div class="shop-card">
-          <div class="shop-img" style="background-image:url('https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80')"></div>
-          <div class="shop-body">
-            <h3 data-i18n="shop_pouches_title">Pochette</h3>
-            <p data-i18n="shop_pouches_desc">Accessori unici con i tuoi disegni preferiti — perfetti per te o come regalo speciale.</p>
-            <span class="shop-badge" data-i18n="shop_coming_soon">Prossimamente</span>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:40px;">
-        <p style="color:rgba(255,255,255,0.6);font-size:14px;margin-bottom:16px;" data-i18n="shop_notice">Lo shop aprirà presto! Iscriviti alla newsletter per essere la prima a sapere.</p>
-        <a href="#newsletter" class="btn-outline-light" data-i18n="shop_notify">Avvisami all'apertura</a>
-      </div>
-    </div>
-  </section>
   <!-- TESTIMONIANZE -->
   <section class="section" id="testimonianze">
     <div class="container">
@@ -413,6 +354,45 @@
     </div>
   </section>
 
+    <section class="section section-dark" id="shop">
+    <div class="container">
+      <div class="section-head light" style="text-align:center;">
+        <h2 data-i18n="shop_title">Shop — I miei disegni</h2>
+        <p data-i18n="shop_sub">Tazze, magliette e pochette con illustrazioni originali</p>
+      </div>
+      <div class="shop-grid">
+        <div class="shop-card">
+          <div class="shop-img" style="background-image:url('images/tazza-shop.jpg.jpg')"></div>
+          <div class="shop-body">
+            <h3 data-i18n="shop_mugs_title">Tazze</h3>
+            <p data-i18n="shop_mugs_desc">Inizia la giornata con una tazza unica, illustrata a mano con messaggi di crescita personale.</p>
+            <span class="shop-badge" data-i18n="shop_coming_soon">Prossimamente</span>
+          </div>
+        </div>
+        <div class="shop-card">
+          <div class="shop-img" style="background-image:url('images/tshirt-shop.jpg.JPG')"></div>
+          <div class="shop-body">
+            <h3 data-i18n="shop_tshirts_title">Magliette</h3>
+            <p data-i18n="shop_tshirts_desc">Indossa la tua intenzione quotidiana. Design minimal con frasi ispirazionali e illustrazioni originali.</p>
+            <span class="shop-badge" data-i18n="shop_coming_soon">Prossimamente</span>
+          </div>
+        </div>
+        <div class="shop-card">
+          <div class="shop-img" style="background-image:url('https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80')"></div>
+          <div class="shop-body">
+            <h3 data-i18n="shop_pouches_title">Pochette</h3>
+            <p data-i18n="shop_pouches_desc">Accessori unici con i tuoi disegni preferiti — perfetti per te o come regalo speciale.</p>
+            <span class="shop-badge" data-i18n="shop_coming_soon">Prossimamente</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;margin-bottom:16px;" data-i18n="shop_notice">Lo shop aprirà presto! Iscriviti alla newsletter per essere la prima a sapere.</p>
+        <a href="#newsletter" class="btn-outline-light" data-i18n="shop_notify">Avvisami all'apertura</a>
+      </div>
+    </div>
+  </section>
+
   <!-- NEWSLETTER -->
   <section class="section newsletter-section">
     <div class="container">
@@ -447,6 +427,13 @@
           <a href="#">Facebook</a>
           <a href="#">X</a>
         </div>
+      </div>
+
+      <!-- CITAZIONI NEL FOOTER -->
+      <div class="footer-quotes">
+        <blockquote class="footer-quote" data-i18n="quote1">"Non cercare di essere migliore degli altri. Cerca di essere migliore di te stesso." <cite>— William Faulkner</cite></blockquote>
+        <blockquote class="footer-quote" data-i18n-cite="quote2">"Il momento presente è l'unico in cui possiamo vivere, amare, fare e crescere." <cite>— Lao Tzu</cite></blockquote>
+        <blockquote class="footer-quote" data-i18n-cite="quote3">"La vita non si misura con i respiri che facciamo, ma con i momenti che ci tolgono il respiro." <cite>— Maya Angelou</cite></blockquote>
       </div>
       <div class="footer-bottom">
         <p data-i18n="footer_copy">© 2026 Innershift — Tutti i diritti riservati</p>
