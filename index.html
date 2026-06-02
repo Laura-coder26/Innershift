@@ -294,7 +294,11 @@
       </div>
       <div class="armo-grid">
         <div class="armo-card">
-          <div class="armo-season winter">❄️</div>
+          <div class="armo-season winter">
+            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80" 
+                 alt="Inverno Brillante — tessuti" 
+                 style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+          </div>
           <h3 data-i18n="armo_winter_title">Inverno Brillante</h3>
           <p data-i18n="armo_winter_desc">Contrasti forti, colori puri e vividi. Il tuo punto di forza è la luminosità intensa che illumina ogni outfit.</p>
           <div class="armo-colors">
@@ -307,7 +311,11 @@
           </div>
         </div>
         <div class="armo-card">
-          <div class="armo-season spring">🌸</div>
+          <div class="armo-season spring">
+            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&q=80" 
+                 alt="Primavera Brillante — tessuti" 
+                 style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+          </div>
           <h3 data-i18n="armo_spring_title">Primavera Brillante</h3>
           <p data-i18n="armo_spring_desc">Colori caldi e luminosi con contrasto medio-alto. La tua palette è fresca, vivace e piena di energia.</p>
           <div class="armo-colors">
@@ -320,7 +328,11 @@
           </div>
         </div>
         <div class="armo-card armo-cta-card">
-          <div class="armo-season consult">✨</div>
+          <div class="armo-season consult">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" 
+                 alt="Scopri la tua stagione — tessuti" 
+                 style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+          </div>
           <h3 data-i18n="armo_cta_title">Scopri la tua stagione</h3>
           <p data-i18n="armo_cta_desc">Vuoi scoprire quali colori esaltano la tua bellezza? Contattami per una consulenza personalizzata di armocromia.</p>
           <a href="armocromia.html" class="btn-primary" style="margin-top:16px;display:inline-block;" data-i18n="armo_cta_btn">Scopri di più</a>
@@ -587,5 +599,13 @@ function subscribeNewsletter(e) {
   }
   @media (max-width: 768px) {
     .quotes-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+
+  .armo-season img {
+    display: block;
+    border-radius: 12px;
+  }
+  .armo-season {
+    overflow: hidden;
   }
 
