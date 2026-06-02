@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La vita è un viaggio. E tu sei il cartografo. — Innershift</title>
+  <meta name="description" content="Ogni secondo è un passo verso luoghi ancora sconosciuti. È tempo di smettere di camminare in punta di piedi e riprendere il proprio cammino." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ0VPEPVEX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VJ0VPEPVEX');
+  </script>
+  <style>
+    .article-hero {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      margin-top: 72px;
+    }
+    .article-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+    .article-cat {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: #E4EFE5;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .article-date {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 2rem;
+    }
+    .article-body p {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--dark);
+      margin-bottom: 1.4rem;
+    }
+    .article-body strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .article-body em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .article-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--warm));
+      border-radius: 2px;
+      margin: 2.5rem 0;
+    }
+    .article-highlight {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      text-align: center;
+      color: var(--ink);
+      margin: 2rem 0;
+      line-height: 1.3;
+    }
+    .article-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      padding: 0.8rem 0 0.8rem 1.5rem;
+      margin: 2rem 0;
+      line-height: 1.75;
+    }
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: gap 0.2s;
+    }
+    .article-back:hover { gap: 10px; }
+    .article-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 1.5rem;
+      background: var(--parchment, #F7F4EF);
+      border-radius: 14px;
+      margin-top: 3rem;
+    }
+    .article-author img {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid var(--stone);
+    }
+    .article-author-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--ink);
+      margin: 0 0 2px;
+    }
+    .article-author-role {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Innershift</a>
+      <div class="nav-links">
+        <a href="index.html#articoli" data-i18n="nav_articles">Articoli</a>
+        <a href="index.html#eventi" data-i18n="nav_events">Eventi</a>
+        <a href="index.html#risorse" data-i18n="nav_resources">Risorse</a>
+        <a href="armocromia.html">Armocromia</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="chi-sono.html" data-i18n="nav_about">Chi sono</a>
+        <a href="admin/index.html" class="nav-admin" style="display:none">Admin</a>
+        <div class="lang-selector" style="position:relative;">
+          <button class="lang-btn" onclick="var m=document.getElementById('lm2'); m.style.display=m.style.display==='block'?'none':'block';" style="display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;color:white;">
+            <span id="current-lang-flag">🇮🇹</span>
+            <span id="current-lang-label">IT</span>
+            <span>▾</span>
+          </button>
+          <div id="lm2" style="display:none;position:absolute;top:calc(100% + 6px);right:0;background:white;border:1px solid #E8E2D9;border-radius:10px;overflow:hidden;min-width:150px;box-shadow:0 8px 24px rgba(0,0,0,0.15);z-index:9999;">
+            <div onclick="setLang('it');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇮🇹 Italiano</div>
+            <div onclick="setLang('en');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇬🇧 English</div>
+            <div onclick="setLang('fr');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇫🇷 Français</div>
+            <div onclick="setLang('es');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇪🇸 Español</div>
+            <div onclick="setLang('de');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇩🇪 Deutsch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO IMAGE -->
+  <img 
+    src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1400&q=85" 
+    alt="La vita è un viaggio" 
+    class="article-hero">
+
+  <!-- ARTICLE -->
+  <div class="article-wrap">
+
+    <a href="index.html#articoli" class="article-back">← Tutti gli articoli</a>
+
+    <div class="article-meta">
+      <span class="article-cat">Crescita personale</span>
+      <span class="article-date">2 giugno 2026</span>
+    </div>
+
+    <h1 class="article-title">La vita è un viaggio. E tu sei il cartografo.</h1>
+
+    <div class="article-body">
+
+      <p>Nessuno ci avverte davvero.</p>
+
+      <p>La vita è un museo in movimento, un viaggio continuo — e ogni secondo è un piccolo passo verso luoghi che ancora non conosciamo.</p>
+
+      <p>Eppure troppo spesso camminiamo in punta di piedi. Attenti alle aspettative altrui, preoccupati di non disturbare, trascuriamo la cosa più importante: riprendere il nostro cammino.</p>
+
+      <p><strong>È tempo di imboccare la strada più aperta.</strong></p>
+
+      <p>Di smettere di sprecare energia in cose che non ci appartengono davvero. Di smettere di provare a cambiare — o di lasciarci cambiare — secondo le aspettative di chi ci circonda.</p>
+
+      <p>Ogni attimo di questa vita è prezioso. Quando scegliamo di viverlo per noi stessi — per nutrirci, per proteggere la nostra pace, per attivare l'amore che meritiamo — tutto cambia.</p>
+
+      <div class="article-divider"></div>
+
+      <p><em>Immagina di partire per un viaggio in cui sei l'unico cartografo.</em></p>
+
+      <p>Ogni emozione è una città da esplorare. Ogni scelta è un ponte verso territori nuovi. Non stai aspettando nessuno: stai costruendo la tua mappa, passo dopo passo.</p>
+
+      <p>E mentre cammini, scopri che la vera destinazione non è segnata su nessuna mappa.</p>
+
+      <p class="article-highlight">Sei tu.</p>
+
+      <div class="article-quote">
+        La libertà di vivere secondo ciò che senti, creare ciò che ami, scegliere — anche solo per un istante — di essere davvero te stessa.
+      </div>
+
+    </div>
+
+    <!-- AUTHOR -->
+    <div class="article-author">
+      <img src="images/IMG_4321.jpg" alt="Laura">
+      <div>
+        <p class="article-author-name">Laura</p>
+        <p class="article-author-role">Innershift — Crescita personale &amp; AI Language Creator</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Innershift</a>
+          <p class="footer-tagline">Il cambiamento parte da dentro.</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html#articoli">Articoli</a>
+          <a href="index.html#eventi">Eventi</a>
+          <a href="index.html#risorse">Risorse</a>
+          <a href="armocromia.html">Armocromia</a>
+          <a href="chi-sono.html">Chi sono</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Innershift — Tutti i diritti riservati</p>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      it:{ nav_articles:"Articoli", nav_events:"Eventi", nav_resources:"Risorse", nav_about:"Chi sono" },
+      en:{ nav_articles:"Articles", nav_events:"Events", nav_resources:"Resources", nav_about:"About me" },
+      fr:{ nav_articles:"Articles", nav_events:"Événements", nav_resources:"Ressources", nav_about:"Qui suis-je" },
+      es:{ nav_articles:"Artículos", nav_events:"Eventos", nav_resources:"Recursos", nav_about:"Quién soy" },
+      de:{ nav_articles:"Artikel", nav_events:"Veranstaltungen", nav_resources:"Ressourcen", nav_about:"Über mich" }
+    };
+    let currentLang = localStorage.getItem('innershift_lang') || 'it';
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('innershift_lang', lang);
+      const t = T[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      const flags = {it:'🇮🇹',en:'🇬🇧',fr:'🇫🇷',es:'🇪🇸',de:'🇩🇪'};
+      const labels = {it:'IT',en:'EN',fr:'FR',es:'ES',de:'DE'};
+      document.getElementById('current-lang-flag').textContent = flags[lang];
+      document.getElementById('current-lang-label').textContent = labels[lang];
+      document.documentElement.lang = lang;
+    }
+    document.addEventListener('DOMContentLoaded', function() { setLang(currentLang); });
+  </script>
+
+</body>
+</html>
