@@ -294,10 +294,16 @@
       </div>
       <div class="armo-grid">
         <div class="armo-card">
-          <div class="armo-season winter">
-            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80" 
-                 alt="Inverno Brillante — tessuti" 
-                 style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+          <div class="armo-season winter armo-palette-wrap">
+            <div class="armo-palette">
+              <div class="armo-swatch" style="background:#000000;"></div>
+              <div class="armo-swatch" style="background:#FFFFFF;"></div>
+              <div class="armo-swatch" style="background:#FF0040;"></div>
+              <div class="armo-swatch" style="background:#0047AB;"></div>
+              <div class="armo-swatch" style="background:#FF00FF;"></div>
+              <div class="armo-swatch" style="background:#00CED1;"></div>
+            </div>
+            <p class="armo-palette-label">❄️ Toni freddi &amp; vividi</p>
           </div>
           <h3 data-i18n="armo_winter_title">Inverno Brillante</h3>
           <p data-i18n="armo_winter_desc">Contrasti forti, colori puri e vividi. Il tuo punto di forza è la luminosità intensa che illumina ogni outfit.</p>
@@ -311,10 +317,16 @@
           </div>
         </div>
         <div class="armo-card">
-          <div class="armo-season spring">
-            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&q=80" 
-                 alt="Primavera Brillante — tessuti" 
-                 style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+          <div class="armo-season spring armo-palette-wrap">
+            <div class="armo-palette">
+              <div class="armo-swatch" style="background:#FF6B35;"></div>
+              <div class="armo-swatch" style="background:#FFD700;"></div>
+              <div class="armo-swatch" style="background:#FF1493;"></div>
+              <div class="armo-swatch" style="background:#00CC66;"></div>
+              <div class="armo-swatch" style="background:#FF4500;"></div>
+              <div class="armo-swatch" style="background:#FFA500;"></div>
+            </div>
+            <p class="armo-palette-label">🌸 Toni caldi &amp; luminosi</p>
           </div>
           <h3 data-i18n="armo_spring_title">Primavera Brillante</h3>
           <p data-i18n="armo_spring_desc">Colori caldi e luminosi con contrasto medio-alto. La tua palette è fresca, vivace e piena di energia.</p>
@@ -328,10 +340,16 @@
           </div>
         </div>
         <div class="armo-card armo-cta-card">
-          <div class="armo-season consult">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" 
-                 alt="Scopri la tua stagione — tessuti" 
-                 style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+          <div class="armo-season consult armo-palette-wrap">
+            <div class="armo-palette">
+              <div class="armo-swatch" style="background:#000000;"></div>
+              <div class="armo-swatch" style="background:#FF6B35;"></div>
+              <div class="armo-swatch" style="background:#FF00FF;"></div>
+              <div class="armo-swatch" style="background:#FFD700;"></div>
+              <div class="armo-swatch" style="background:#0047AB;"></div>
+              <div class="armo-swatch" style="background:#00CC66;"></div>
+            </div>
+            <p class="armo-palette-label">✨ Qual è la tua stagione?</p>
           </div>
           <h3 data-i18n="armo_cta_title">Scopri la tua stagione</h3>
           <p data-i18n="armo_cta_desc">Vuoi scoprire quali colori esaltano la tua bellezza? Contattami per una consulenza personalizzata di armocromia.</p>
@@ -607,5 +625,43 @@ function subscribeNewsletter(e) {
   }
   .armo-season {
     overflow: hidden;
+  }
+
+  /* ARMO PALETTE SWATCHES */
+  .armo-palette-wrap {
+    background: #F8F5F0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    font-size: 1rem !important;
+    padding: 1.2rem !important;
+    min-height: 140px;
+  }
+  .armo-palette {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .armo-swatch {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+  }
+  .armo-swatch:hover {
+    transform: scale(1.15);
+  }
+  .armo-palette-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin: 0;
   }
 
