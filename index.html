@@ -106,6 +106,31 @@
           </div>
         </div>
       </div>
+        <!-- ARTICOLO PERGAMENA -->
+        <div class="post-card post-card-parchment">
+          <div class="parchment-body">
+            <div class="post-cat" style="color:#8B6914;background:#F5EDD0;display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:0.8rem;">Crescita personale</div>
+            <h3 class="post-title parchment-title">La vita è un viaggio. E tu sei il cartografo.</h3>
+            <div class="parchment-text">
+              <p>Nessuno ci avverte davvero.</p>
+              <p>La vita è un museo in movimento, un viaggio continuo — e ogni secondo è un piccolo passo verso luoghi che ancora non conosciamo.</p>
+              <p>Eppure troppo spesso camminiamo in punta di piedi. Attenti alle aspettative altrui, preoccupati di non disturbare, trascuriamo la cosa più importante: riprendere il nostro cammino.</p>
+              <p><strong>È tempo di imboccare la strada più aperta.</strong></p>
+              <p>Di smettere di sprecare energia in cose che non ci appartengono davvero. Di smettere di provare a cambiare — o di lasciarci cambiare — secondo le aspettative di chi ci circonda.</p>
+              <p>Ogni attimo di questa vita è prezioso. Quando scegliamo di viverlo per noi stessi — per nutrirci, per proteggere la nostra pace, per attivare l'amore che meritiamo — tutto cambia.</p>
+              <div class="parchment-divider"></div>
+              <p><em>Immagina di partire per un viaggio in cui sei l'unico cartografo.</em></p>
+              <p>Ogni emozione è una città da esplorare. Ogni scelta è un ponte verso territori nuovi. Non stai aspettando nessuno: stai costruendo la tua mappa, passo dopo passo.</p>
+              <p>E mentre cammini, scopri che la vera destinazione non è segnata su nessuna mappa.</p>
+              <p class="parchment-highlight"><strong>Sei tu.</strong></p>
+              <blockquote class="parchment-quote">La libertà di vivere secondo ciò che senti, creare ciò che ami, scegliere — anche solo per un istante — di essere davvero te stessa.</blockquote>
+            </div>
+            <div class="post-footer" style="margin-top:1.5rem;">
+              <span class="post-date">2 giu 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -663,5 +688,91 @@ function subscribeNewsletter(e) {
     color: var(--muted);
     text-transform: uppercase;
     margin: 0;
+  }
+
+  /* PARCHMENT ARTICLE */
+  .post-card-parchment {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #FDF8EC 0%, #F7EDD0 40%, #F2E4B8 100%);
+    border: 1px solid #D4B896;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(139,105,20,0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+  }
+  .post-card-parchment::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 27px,
+        rgba(139,105,20,0.07) 27px,
+        rgba(139,105,20,0.07) 28px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+  .post-card-parchment::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 52px; bottom: 0;
+    width: 1px;
+    background: rgba(196,140,80,0.25);
+    z-index: 0;
+  }
+  .parchment-body {
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem 3rem 2rem 4rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .parchment-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 400;
+    font-style: italic;
+    color: #4A2E0A;
+    margin: 0.8rem 0 1.5rem;
+    line-height: 1.3;
+  }
+  .parchment-text p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #3D2B0A;
+    margin-bottom: 1rem;
+  }
+  .parchment-text strong { color: #2C1A00; font-weight: 700; }
+  .parchment-text em { font-style: italic; color: #6B4A10; }
+  .parchment-divider {
+    width: 60px; height: 1px;
+    background: rgba(139,105,20,0.3);
+    margin: 1.5rem 0;
+  }
+  .parchment-highlight {
+    font-family: var(--font-display);
+    font-size: 1.5rem !important;
+    font-style: italic;
+    text-align: center;
+    color: #4A2E0A !important;
+    margin: 1rem 0 !important;
+  }
+  .parchment-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #6B4A10;
+    border-left: 3px solid #C4A055;
+    padding: 0.5rem 0 0.5rem 1.2rem;
+    margin: 1.5rem 0 0;
+    line-height: 1.7;
+  }
+  @media (max-width: 640px) {
+    .parchment-body { padding: 1.8rem 1.5rem 1.5rem 1.8rem; }
+    .post-card-parchment::after { display: none; }
   }
 
