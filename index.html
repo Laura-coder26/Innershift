@@ -17,6 +17,61 @@
     gtag('js', new Date());
     gtag('config', 'G-VJ0VPEPVEX');
   </script>
+<style>
+    .corsi-teaser-section { background: var(--parchment, #F7F4EF); padding: 3rem 0; }
+    .corsi-teaser-banner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .corsi-teaser-avatar { flex-shrink: 0; }
+    .corsi-teaser-avatar img {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 3px solid var(--accent, #6B8F6B);
+      display: block;
+    }
+    .corsi-teaser-label {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, #6B8F6B);
+      background: #E4EFE5;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .corsi-teaser-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+    .corsi-teaser-text p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+    @media (max-width: 640px) {
+      .corsi-teaser-banner { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
