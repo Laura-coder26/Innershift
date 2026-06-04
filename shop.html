@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Innershift</title>
+  <meta name="description" content="Tazze, magliette e pochette con illustrazioni originali di Innershift." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ0VPEPVEX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VJ0VPEPVEX');
+  </script>
+  <style>
+    .shop-hero {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #2E2B26 0%, #4a5568 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 72px;
+      text-align: center;
+    }
+    .shop-hero-inner h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .shop-hero-inner p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Innershift</a>
+      <div class="nav-links">
+        <a href="index.html#articoli" data-i18n="nav_articles">Articoli</a>
+        <a href="index.html#eventi" data-i18n="nav_events">Eventi</a>
+        <a href="index.html#risorse" data-i18n="nav_resources">Risorse</a>
+        <a href="armocromia.html">Armocromia</a>
+        <a href="shop.html" class="nav-active">Shop</a>
+        <a href="chi-sono.html" data-i18n="nav_about">Chi sono</a>
+        <a href="admin/index.html" class="nav-admin" style="display:none">Admin</a>
+        <div class="lang-selector" style="position:relative;">
+          <button class="lang-btn" onclick="var m=document.getElementById('lm2'); m.style.display=m.style.display==='block'?'none':'block';" style="display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;color:white;">
+            <span id="current-lang-flag">🇮🇹</span>
+            <span id="current-lang-label">IT</span>
+            <span>▾</span>
+          </button>
+          <div id="lm2" style="display:none;position:absolute;top:calc(100% + 6px);right:0;background:white;border:1px solid #E8E2D9;border-radius:10px;overflow:hidden;min-width:150px;box-shadow:0 8px 24px rgba(0,0,0,0.15);z-index:9999;">
+            <div onclick="setLang('it');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇮🇹 Italiano</div>
+            <div onclick="setLang('en');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇬🇧 English</div>
+            <div onclick="setLang('fr');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇫🇷 Français</div>
+            <div onclick="setLang('es');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇪🇸 Español</div>
+            <div onclick="setLang('de');document.getElementById('lm2').style.display='none';" style="padding:10px 14px;font-size:13px;cursor:pointer;color:#2E2B26;" onmouseover="this.style.background='#F7F4EF'" onmouseout="this.style.background='white'">🇩🇪 Deutsch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="shop-hero">
+    <div class="shop-hero-inner">
+      <h1 data-i18n="shop_title">Shop — I miei disegni</h1>
+      <p data-i18n="shop_sub">Tazze, magliette e pochette con illustrazioni originali</p>
+    </div>
+  </div>
+
+  <!-- SHOP SECTION -->
+  <section class="section section-dark" id="shop">
+    <div class="container">
+      <div class="shop-grid">
+        <div class="shop-card">
+          <div class="shop-img" style="background-image:url('images/tazza-shop.jpg.jpg')"></div>
+          <div class="shop-body">
+            <h3 data-i18n="shop_mugs_title">Tazze</h3>
+            <p data-i18n="shop_mugs_desc">Inizia la giornata con una tazza unica, illustrata a mano con messaggi di crescita personale.</p>
+            <span class="shop-badge" data-i18n="shop_coming_soon">Prossimamente</span>
+          </div>
+        </div>
+        <div class="shop-card">
+          <div class="shop-img" style="background-image:url('images/tshirt-shop.jpg.JPG')"></div>
+          <div class="shop-body">
+            <h3 data-i18n="shop_tshirts_title">Magliette</h3>
+            <p data-i18n="shop_tshirts_desc">Indossa la tua intenzione quotidiana. Design minimal con frasi ispirazionali e illustrazioni originali.</p>
+            <span class="shop-badge" data-i18n="shop_coming_soon">Prossimamente</span>
+          </div>
+        </div>
+        <div class="shop-card">
+          <div class="shop-img" style="background-image:url('https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80')"></div>
+          <div class="shop-body">
+            <h3 data-i18n="shop_pouches_title">Pochette</h3>
+            <p data-i18n="shop_pouches_desc">Accessori unici con i tuoi disegni preferiti — perfetti per te o come regalo speciale.</p>
+            <span class="shop-badge" data-i18n="shop_coming_soon">Prossimamente</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;margin-bottom:16px;" data-i18n="shop_notice">Lo shop aprirà presto! Iscriviti alla newsletter per essere la prima a sapere.</p>
+        <a href="index.html#newsletter" class="btn-outline-light" data-i18n="shop_notify">Avvisami all'apertura</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="logo">Innershift</div>
+          <p class="footer-tagline" data-i18n="footer_tagline">Il cambiamento parte da dentro.</p>
+        </div>
+        <div class="footer-social">
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">X</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">© 2026 Innershift — Tutti i diritti riservati</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      it: { nav_articles:"Articoli", nav_events:"Eventi", nav_resources:"Risorse", nav_about:"Chi sono", shop_title:"Shop — I miei disegni", shop_sub:"Tazze, magliette e pochette con illustrazioni originali", shop_mugs_title:"Tazze", shop_mugs_desc:"Inizia la giornata con una tazza unica, illustrata a mano con messaggi di crescita personale.", shop_tshirts_title:"Magliette", shop_tshirts_desc:"Indossa la tua intenzione quotidiana. Design minimal con frasi ispirazionali e illustrazioni originali.", shop_pouches_title:"Pochette", shop_pouches_desc:"Accessori unici con i tuoi disegni preferiti — perfetti per te o come regalo speciale.", shop_coming_soon:"Prossimamente", shop_notice:"Lo shop aprirà presto! Iscriviti alla newsletter per essere la prima a sapere.", shop_notify:"Avvisami all'apertura", footer_tagline:"Il cambiamento parte da dentro.", footer_copy:"© 2026 Innershift — Tutti i diritti riservati" },
+      en: { nav_articles:"Articles", nav_events:"Events", nav_resources:"Resources", nav_about:"About me", shop_title:"Shop — My Designs", shop_sub:"Mugs, t-shirts and pouches with original illustrations", shop_mugs_title:"Mugs", shop_mugs_desc:"Start your day with a unique mug, hand-illustrated with personal growth messages.", shop_tshirts_title:"T-Shirts", shop_tshirts_desc:"Wear your daily intention. Minimal design with inspirational phrases and original illustrations.", shop_pouches_title:"Pouches", shop_pouches_desc:"Unique accessories featuring your favorite designs — perfect for yourself or as a special gift.", shop_coming_soon:"Coming soon", shop_notice:"The shop is opening soon! Subscribe to the newsletter to be the first to know.", shop_notify:"Notify me", footer_tagline:"Change starts from within.", footer_copy:"© 2026 Innershift — All rights reserved" },
+      fr: { nav_articles:"Articles", nav_events:"Événements", nav_resources:"Ressources", nav_about:"Qui suis-je", shop_title:"Shop — Mes créations", shop_sub:"Tasses, t-shirts et pochettes avec des illustrations originales", shop_mugs_title:"Tasses", shop_mugs_desc:"Commencez la journée avec une tasse unique, illustrée à la main avec des messages de croissance personnelle.", shop_tshirts_title:"T-Shirts", shop_tshirts_desc:"Portez votre intention quotidienne. Design minimaliste avec des phrases inspirantes et des illustrations originales.", shop_pouches_title:"Pochettes", shop_pouches_desc:"Accessoires uniques avec vos illustrations préférées — parfaits pour vous ou en cadeau spécial.", shop_coming_soon:"Bientôt disponible", shop_notice:"La boutique ouvrira bientôt ! Inscrivez-vous à la newsletter pour être la première informée.", shop_notify:"Me prévenir", footer_tagline:"Le changement vient de l'intérieur.", footer_copy:"© 2026 Innershift — Tous droits réservés" },
+      es: { nav_articles:"Artículos", nav_events:"Eventos", nav_resources:"Recursos", nav_about:"Quién soy", shop_title:"Shop — Mis diseños", shop_sub:"Tazas, camisetas y estuches con ilustraciones originales", shop_mugs_title:"Tazas", shop_mugs_desc:"Empieza el día con una taza única, ilustrada a mano con mensajes de crecimiento personal.", shop_tshirts_title:"Camisetas", shop_tshirts_desc:"Viste tu intención diaria. Diseño minimalista con frases inspiracionales e ilustraciones originales.", shop_pouches_title:"Estuches", shop_pouches_desc:"Accesorios únicos con tus diseños favoritos — perfectos para ti o como regalo especial.", shop_coming_soon:"Próximamente", shop_notice:"¡La tienda abrirá pronto! Suscríbete al boletín para ser la primera en saberlo.", shop_notify:"Avísame", footer_tagline:"El cambio empieza desde dentro.", footer_copy:"© 2026 Innershift — Todos los derechos reservados" },
+      de: { nav_articles:"Artikel", nav_events:"Veranstaltungen", nav_resources:"Ressourcen", nav_about:"Über mich", shop_title:"Shop — Meine Designs", shop_sub:"Tassen, T-Shirts und Täschchen mit originellen Illustrationen", shop_mugs_title:"Tassen", shop_mugs_desc:"Starte den Tag mit einer einzigartigen Tasse, handillustriert mit Botschaften für persönliches Wachstum.", shop_tshirts_title:"T-Shirts", shop_tshirts_desc:"Trage deine tägliche Intention. Minimalistisches Design mit inspirierenden Sprüchen und originellen Illustrationen.", shop_pouches_title:"Täschchen", shop_pouches_desc:"Einzigartige Accessoires mit deinen Lieblingsdesigns — perfekt für dich oder als besonderes Geschenk.", shop_coming_soon:"Demnächst", shop_notice:"Der Shop öffnet bald! Abonniere den Newsletter, um als Erste informiert zu werden.", shop_notify:"Benachrichtige mich", footer_tagline:"Veränderung beginnt von innen.", footer_copy:"© 2026 Innershift — Alle Rechte vorbehalten" }
+    };
+
+    let currentLang = localStorage.getItem('innershift_lang') || 'it';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('innershift_lang', lang);
+      const t = T[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      const flags  = { it:'🇮🇹', en:'🇬🇧', fr:'🇫🇷', es:'🇪🇸', de:'🇩🇪' };
+      const labels = { it:'IT',   en:'EN',   fr:'FR',   es:'ES',   de:'DE'  };
+      document.getElementById('current-lang-flag').textContent  = flags[lang];
+      document.getElementById('current-lang-label').textContent = labels[lang];
+      document.documentElement.lang = lang;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() { setLang(currentLang); });
+  </script>
+
+</body>
+</html>
