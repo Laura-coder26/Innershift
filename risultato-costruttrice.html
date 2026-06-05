@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il tuo risultato: sei La Costruttrice — InnerShift</title>
+<meta name="description" content="Hai scoperto il tuo stile di apprendimento: sei La Costruttrice. La concretezza è il tuo superpotere.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --coral: #993C1D;
+    --coral-light: #FAECE7;
+    --coral-mid: #F0997B;
+    --coral-dark: #4A1B0C;
+    --beige: #f5f2ec;
+    --beige-dark: #e8e3d8;
+    --testo: #1a1a1a;
+    --testo-sec: #5a5a5a;
+    --testo-ter: #9a9a9a;
+    --font-serif: 'Libre Baskerville', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--beige); color: var(--testo); line-height: 1.6; min-height: 100vh; }
+  nav { position: sticky; top: 0; z-index: 100; background: var(--beige); border-bottom: 1px solid var(--beige-dark); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--font-serif); font-size: 18px; color: var(--testo); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--testo-sec); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--testo); }
+  .hero { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 2rem; opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards .1s; }
+  .eyebrow { font-size: 11px; font-weight: 500; color: var(--coral); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--coral); }
+  h1 { font-family: var(--font-serif); font-size: clamp(36px, 6vw, 52px); font-weight: 700; color: var(--testo); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; }
+  h1 em { font-style: italic; color: var(--coral); }
+  .hero-sub { font-size: 17px; color: var(--testo-sec); line-height: 1.7; max-width: 560px; font-weight: 300; }
+  .content { max-width: 720px; margin: 0 auto; padding: 0 2rem 5rem; }
+  .profile-card { background: var(--coral-light); border: 1px solid var(--coral-mid); border-radius: 16px; padding: 2rem; margin: 2.5rem 0; opacity: 0; transform: translateY(16px); animation: fadeUp .6s ease forwards .3s; }
+  .profile-card p { font-size: 16px; color: #712B13; line-height: 1.75; font-weight: 300; }
+  .profile-card strong { font-weight: 500; color: var(--coral-dark); }
+  .superpotere { display: flex; align-items: flex-start; gap: 16px; background: white; border: 1px solid var(--beige-dark); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 3rem; opacity: 0; animation: fadeUp .6s ease forwards .45s; }
+  .superpotere-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--coral-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .superpotere p { font-size: 14px; color: var(--testo-sec); line-height: 1.6; }
+  .superpotere strong { font-weight: 500; color: var(--testo); }
+  .section-title { font-size: 11px; font-weight: 500; color: var(--testo-ter); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.25rem; }
+  .tips { display: flex; flex-direction: column; gap: 1px; margin-bottom: 3rem; }
+  .tip { display: flex; gap: 20px; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--beige-dark); opacity: 0; animation: fadeUp .5s ease forwards; }
+  .tip:nth-child(1) { animation-delay: .5s; } .tip:nth-child(2) { animation-delay: .6s; } .tip:nth-child(3) { animation-delay: .7s; }
+  .tip:last-child { border-bottom: none; }
+  .tip-num { font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--coral-mid); line-height: 1; min-width: 32px; padding-top: 2px; }
+  .tip-title { font-size: 15px; font-weight: 500; color: var(--testo); margin-bottom: 6px; }
+  .tip-desc { font-size: 14px; color: var(--testo-sec); line-height: 1.65; font-weight: 300; }
+  .quote-block { margin: 3rem 0; padding: 2rem 0 2rem 2rem; border-left: 3px solid var(--coral); opacity: 0; animation: fadeUp .6s ease forwards .8s; }
+  blockquote { font-family: var(--font-serif); font-size: clamp(17px, 2.5vw, 20px); font-style: italic; color: var(--testo); line-height: 1.65; margin-bottom: 16px; }
+  .quote-author { font-size: 13px; color: var(--testo-ter); }
+  .cta-card { background: white; border: 1px solid var(--beige-dark); border-radius: 20px; padding: 2.5rem; text-align: center; opacity: 0; animation: fadeUp .6s ease forwards .9s; }
+  .cta-card h2 { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--testo); margin-bottom: 10px; letter-spacing: -0.02em; }
+  .cta-card p { font-size: 14px; color: var(--testo-sec); line-height: 1.65; max-width: 420px; margin: 0 auto 1.75rem; font-weight: 300; }
+  .cta-form { display: flex; gap: 8px; max-width: 400px; margin: 0 auto; }
+  .cta-form input { flex: 1; padding: 12px 16px; border: 1px solid var(--beige-dark); border-radius: 10px; font-family: var(--font-sans); font-size: 14px; color: var(--testo); background: var(--beige); outline: none; transition: border-color .2s; }
+  .cta-form input:focus { border-color: var(--coral); }
+  .cta-form input::placeholder { color: var(--testo-ter); }
+  .cta-btn { padding: 12px 22px; background: var(--coral); color: white; border: none; border-radius: 10px; font-family: var(--font-sans); font-size: 14px; font-weight: 500; cursor: pointer; transition: background .2s, transform .15s; white-space: nowrap; }
+  .cta-btn:hover { background: var(--coral-dark); transform: translateY(-1px); }
+  .cta-micro { font-size: 11px; color: var(--testo-ter); margin: 12px 0 0; }
+  .altri { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--beige-dark); }
+  .altri-title { font-size: 13px; color: var(--testo-ter); margin-bottom: 1rem; }
+  .altri-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+  .altro-btn { background: white; border: 1px solid var(--beige-dark); border-radius: 10px; padding: 12px 14px; font-family: var(--font-sans); font-size: 13px; color: var(--testo-sec); cursor: pointer; text-align: left; transition: border-color .2s, color .2s; line-height: 1.4; }
+  .altro-btn span { display: block; font-size: 11px; color: var(--testo-ter); margin-top: 2px; }
+  .altro-btn:hover { border-color: var(--coral-mid); color: var(--testo); }
+  footer { border-top: 1px solid var(--beige-dark); padding: 2rem; text-align: center; font-size: 12px; color: var(--testo-ter); }
+  footer a { color: var(--testo-sec); text-decoration: none; }
+  footer a:hover { color: var(--testo); }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { nav { padding: 0 1.25rem; } .nav-links { display: none; } .hero, .content { padding-left: 1.25rem; padding-right: 1.25rem; } .hero { padding-top: 2.5rem; } .cta-form { flex-direction: column; } .cta-card { padding: 1.75rem 1.25rem; } .quote-block { padding-left: 1.25rem; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">InnerShift</a>
+  <ul class="nav-links">
+    <li><a href="index.html#articoli">Articoli</a></li>
+    <li><a href="index.html#eventi">Eventi</a></li>
+    <li><a href="index.html#risorse">Risorse</a></li>
+    <li><a href="armocromia.html">Armocromia</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="chi-sono.html">Chi sono</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <p class="eyebrow">Il tuo risultato</p>
+  <h1>Sei<br><em>La Costruttrice</em></h1>
+  <p class="hero-sub">Impari facendo. Per te l'italiano non esiste sulla carta — esiste nel momento in cui lo usi, lo applichi, lo porti dentro la tua giornata concreta.</p>
+</div>
+<div class="content">
+  <div class="profile-card">
+    <p>Non hai bisogno di teoria infinita prima di agire. Hai bisogno di un'<strong>azione piccola e precisa</strong> da fare subito. Ogni cosa che impari deve avere un'applicazione immediata — altrimenti scivola via. Quando l'italiano entra nella tua routine quotidiana, diventa tuo per sempre.</p>
+  </div>
+  <div class="superpotere">
+    <div class="superpotere-icon">🛠️</div>
+    <p><strong>Il tuo superpotere:</strong> la concretezza. Non rimandi, non aspetti di essere pronta — fai. E ogni piccola azione che completi costruisce una fondamenta che regge.</p>
+  </div>
+  <p class="section-title">3 cose da fare questa settimana</p>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-num">01</div>
+      <div>
+        <p class="tip-title">Scrivi la tua lista della spesa in italiano</p>
+        <p class="tip-desc">Inizia con qualcosa di talmente concreto che non puoi non farlo: la lista della spesa. Pomodori, pane, latte — cerca le parole, scrivile, usale. È un esercizio di 5 minuti che trasforma l'italiano in qualcosa che appartiene alla tua vita reale.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num">02</div>
+      <div>
+        <p class="tip-title">Imposta un micro-obiettivo giornaliero misurabile</p>
+        <p class="tip-desc">Non "studiare italiano" — troppo vago. Invece: "imparare 3 parole nuove", "scrivere 2 frasi", "ascoltare un podcast per 10 minuti". Gli obiettivi concreti si completano. Quelli astratti si rimandano.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-num">03</div>
+      <div>
+        <p class="tip-title">Usa l'italiano in una situazione reale questa settimana</p>
+        <p class="tip-desc">Scrivi un commento in italiano su un post, manda un messaggio a qualcuno in italiano, prova a parlare con un madrelingua online. Non importa quanto sia breve o imperfetto — importa che sia reale. Il tuo cervello impara dall'uso, non dallo studio.</p>
+      </div>
+    </div>
+  </div>
+  <div class="quote-block">
+    <blockquote>"Le persone come te cambiano davvero — perché non aspettano le condizioni perfette per iniziare. Iniziano con quello che hanno, dove sono. E poi aggiustano lungo la strada."</blockquote>
+    <p class="quote-author">— Laura, InnerShift</p>
+  </div>
+  <div class="cta-card">
+    <h2>Pronta per il passo successivo?</h2>
+    <p>Iscriviti alla newsletter di InnerShift e ricevi ogni settimana una storia in italiano, un consiglio di mindset e qualcosa che non ti aspetti.</p>
+    <div class="cta-form">
+      <input type="email" placeholder="La tua email" id="email-input" />
+      <button class="cta-btn" onclick="handleSubscribe()">Sì, mi iscrivo</button>
+    </div>
+    <p class="cta-micro">Niente spam. Solo cose utili, in italiano e in inglese.</p>
+  </div>
+  <div class="altri">
+    <p class="altri-title">Vuoi scoprire gli altri profili?</p>
+    <div class="altri-grid">
+      <button class="altro-btn">La Cartografa<span>Metodo e struttura</span></button>
+      <button class="altro-btn">L'Esploratrice<span>Coraggio e avventura</span></button>
+      <button class="altro-btn">La Narratrice<span>Storie ed emozioni</span></button>
+    </div>
+  </div>
+</div>
+<footer>
+  <p style="margin-bottom:8px"><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="chi-sono.html">Chi sono</a> &nbsp;·&nbsp; <a href="shop.html">Shop</a></p>
+  <p>© 2026 InnerShift · Il cambiamento parte da dentro</p>
+</footer>
+<script>
+  const SUPABASE_URL = 'https://akopbkorpqkszvcgkfzj.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFrb3Bia29ycHFrc3p2Y2drZnpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwODkwMTYsImV4cCI6MjA5MzY2NTAxNn0.DULsYEDfcad-LYk6npJAyUPTQH75TzxHGucBi3cdJS4';
+  async function handleSubscribe() {
+    const email = document.getElementById('email-input').value.trim();
+    if (!email || !email.includes('@')) { alert('Inserisci un indirizzo email valido.'); return; }
+    const btn = document.querySelector('.cta-btn');
+    btn.textContent = 'Iscrizione in corso…'; btn.disabled = true;
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/newsletter`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}`, 'Prefer': 'return=minimal' }, body: JSON.stringify({ email, profilo: 'costruttrice', source: 'quiz' }) });
+      if (res.ok || res.status === 201) { btn.textContent = 'Iscrizione confermata'; btn.style.background = '#4a7c59'; document.getElementById('email-input').value = ''; }
+      else { throw new Error(); }
+    } catch { btn.textContent = 'Sì, mi iscrivo'; btn.disabled = false; alert('Qualcosa non ha funzionato. Riprova tra poco.'); }
+  }
+</script>
+</body>
+</html>
