@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Che tipo di apprenditrice sei? — InnerShift</title>
+<meta name="description" content="Scopri il tuo stile di apprendimento in 2 minuti e ricevi un piano italiano + mindset pensato solo per te.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --verde: #4a7c59;
+    --verde-light: #e8f0eb;
+    --accent: #1D9E75;
+    --beige: #f5f2ec;
+    --beige-dark: #e8e3d8;
+    --testo: #1a1a1a;
+    --testo-sec: #5a5a5a;
+    --testo-ter: #9a9a9a;
+    --font-serif: 'Libre Baskerville', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--beige); color: var(--testo); line-height: 1.6; min-height: 100vh; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: var(--beige); border-bottom: 1px solid var(--beige-dark); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--font-serif); font-size: 18px; color: var(--testo); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--testo-sec); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--testo); }
+
+  .container { max-width: 640px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+
+  /* INTRO */
+  .intro { text-align: center; margin-bottom: 3rem; opacity: 0; animation: fadeUp .7s ease forwards .1s; }
+  .eyebrow { font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
+  h1 { font-family: var(--font-serif); font-size: clamp(28px, 5vw, 40px); font-weight: 700; color: var(--testo); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 14px; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .intro-sub { font-size: 16px; color: var(--testo-sec); line-height: 1.7; font-weight: 300; max-width: 480px; margin: 0 auto; }
+
+  /* PROGRESS */
+  .progress-wrap { margin-bottom: 2.5rem; opacity: 0; animation: fadeUp .5s ease forwards .2s; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--testo-ter); margin-bottom: 8px; }
+  .progress-bar { height: 3px; background: var(--beige-dark); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width .4s ease; width: 0%; }
+
+  /* QUESTION */
+  .question-block { opacity: 0; animation: fadeUp .5s ease forwards .3s; }
+  .q-text { font-family: var(--font-serif); font-size: clamp(18px, 3vw, 22px); color: var(--testo); line-height: 1.45; margin-bottom: 1.75rem; font-weight: 400; }
+
+  /* OPTIONS */
+  .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
+  .option {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: white; border: 1px solid var(--beige-dark);
+    border-radius: 12px; padding: 1rem 1.25rem;
+    cursor: pointer; transition: border-color .2s, background .2s;
+    text-align: left; font-family: var(--font-sans); width: 100%;
+  }
+  .option:hover { border-color: var(--accent); background: var(--verde-light); }
+  .option.selected { border-color: var(--accent); background: var(--verde-light); }
+  .option-letter {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid var(--beige-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 500; color: var(--testo-ter);
+    flex-shrink: 0; transition: border-color .2s, color .2s, background .2s;
+  }
+  .option.selected .option-letter { border-color: var(--accent); color: var(--accent); background: white; }
+  .option-text { font-size: 15px; color: var(--testo-sec); line-height: 1.5; padding-top: 3px; font-weight: 300; }
+  .option.selected .option-text { color: var(--testo); }
+
+  /* NAV BUTTONS */
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; }
+  .btn-back { background: none; border: 1px solid var(--beige-dark); border-radius: 10px; padding: 10px 20px; font-family: var(--font-sans); font-size: 14px; color: var(--testo-sec); cursor: pointer; transition: border-color .2s, color .2s; }
+  .btn-back:hover { border-color: var(--testo-sec); color: var(--testo); }
+  .btn-back:disabled { opacity: 0; pointer-events: none; }
+  .btn-next { background: var(--accent); border: none; border-radius: 10px; padding: 11px 28px; font-family: var(--font-sans); font-size: 14px; font-weight: 500; color: white; cursor: pointer; transition: background .2s, transform .15s, opacity .2s; opacity: 0.4; pointer-events: none; }
+  .btn-next.active { opacity: 1; pointer-events: all; }
+  .btn-next.active:hover { background: #0F6E56; transform: translateY(-1px); }
+
+  /* RESULT */
+  .result-block { display: none; text-align: center; opacity: 0; }
+  .result-block.show { display: block; animation: fadeUp .6s ease forwards; }
+  .result-emoji { font-size: 48px; margin-bottom: 1rem; }
+  .result-eyebrow { font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+  .result-title { font-family: var(--font-serif); font-size: clamp(28px, 5vw, 38px); font-weight: 700; color: var(--testo); margin-bottom: 14px; letter-spacing: -0.02em; }
+  .result-title em { font-style: italic; }
+  .result-desc { font-size: 16px; color: var(--testo-sec); line-height: 1.7; font-weight: 300; max-width: 480px; margin: 0 auto 2rem; }
+  .result-btn { display: inline-block; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; padding: 13px 32px; font-family: var(--font-sans); font-size: 15px; font-weight: 500; transition: background .2s, transform .15s; }
+  .result-btn:hover { background: #0F6E56; transform: translateY(-1px); }
+  .result-retry { display: block; margin-top: 1rem; font-size: 13px; color: var(--testo-ter); cursor: pointer; background: none; border: none; font-family: var(--font-sans); text-decoration: underline; }
+  .result-retry:hover { color: var(--testo-sec); }
+
+  footer { border-top: 1px solid var(--beige-dark); padding: 2rem; text-align: center; font-size: 12px; color: var(--testo-ter); }
+  footer a { color: var(--testo-sec); text-decoration: none; }
+  footer a:hover { color: var(--testo); }
+
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .question-block { transform: translateY(10px); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.25rem; } .nav-links { display: none; }
+    .container { padding: 2.5rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">InnerShift</a>
+  <ul class="nav-links">
+    <li><a href="index.html#articoli">Articoli</a></li>
+    <li><a href="index.html#eventi">Eventi</a></li>
+    <li><a href="index.html#risorse">Risorse</a></li>
+    <li><a href="armocromia.html">Armocromia</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="chi-sono.html">Chi sono</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <div class="intro" id="intro">
+    <p class="eyebrow">Test gratuito</p>
+    <h1>Che tipo di<br><em>apprenditrice</em> sei?</h1>
+    <p class="intro-sub">6 domande, 2 minuti. Scopri il tuo stile e ricevi un piano italiano + mindset pensato solo per te.</p>
+  </div>
+
+  <div class="progress-wrap" id="progress-wrap">
+    <div class="progress-label">
+      <span id="progress-text">Domanda 1 di 6</span>
+      <span id="progress-pct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <div class="question-block" id="question-block">
+    <p class="q-text" id="q-text"></p>
+    <div class="options" id="options"></div>
+    <div class="nav-buttons">
+      <button class="btn-back" id="btn-back" onclick="goBack()">← Indietro</button>
+      <button class="btn-next" id="btn-next" onclick="goNext()">Avanti →</button>
+    </div>
+  </div>
+
+  <div class="result-block" id="result-block">
+    <div class="result-emoji" id="result-emoji"></div>
+    <p class="result-eyebrow">Il tuo profilo</p>
+    <h2 class="result-title" id="result-title"></h2>
+    <p class="result-desc" id="result-desc"></p>
+    <a href="#" id="result-btn" class="result-btn">Scopri il tuo piano →</a>
+    <button class="result-retry" onclick="restartQuiz()">Rifai il test</button>
+  </div>
+
+</div>
+
+<footer>
+  <p style="margin-bottom:8px"><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="chi-sono.html">Chi sono</a> &nbsp;·&nbsp; <a href="shop.html">Shop</a></p>
+  <p>© 2026 InnerShift · Il cambiamento parte da dentro</p>
+</footer>
+
+<script>
+const questions = [
+  {
+    text: "Stai per imparare qualcosa di nuovo. Qual è la prima cosa che fai?",
+    options: [
+      { text: "Cerco una guida, un libro o un piano strutturato", profile: "A" },
+      { text: "Mi butto direttamente — imparo sbagliando", profile: "B" },
+      { text: "Cerco storie o esempi reali di chi l'ha fatto", profile: "C" },
+      { text: "Trovo subito un piccolo esercizio pratico da fare", profile: "D" }
+    ]
+  },
+  {
+    text: "Quale di queste frasi ti descrive meglio quando studi una lingua?",
+    options: [
+      { text: "Voglio capire le regole grammaticali prima di parlare", profile: "A" },
+      { text: "Parlo subito, anche se faccio errori — l'importante è comunicare", profile: "B" },
+      { text: "Le parole mi restano se le collego a una storia o un'emozione", profile: "C" },
+      { text: "Devo usare subito quello che imparo, altrimenti lo dimentico", profile: "D" }
+    ]
+  },
+  {
+    text: "Hai 20 minuti liberi. Cosa ti viene più naturale fare per crescere?",
+    options: [
+      { text: "Rileggo i miei appunti o completo un esercizio pianificato", profile: "A" },
+      { text: "Esploro qualcosa di nuovo che non conosco ancora", profile: "B" },
+      { text: "Leggo o guardo qualcosa che mi ispira e mi emoziona", profile: "C" },
+      { text: "Faccio qualcosa di concreto — anche piccolo, ma fatto", profile: "D" }
+    ]
+  },
+  {
+    text: "Cosa ti blocca di più quando vuoi cambiare un'abitudine?",
+    options: [
+      { text: "Non avere un piano chiaro su come procedere", profile: "A" },
+      { text: "La paura di sbagliare o di sembrare ridicola", profile: "B" },
+      { text: "Non trovare la motivazione giusta o il perché profondo", profile: "C" },
+      { text: "Rimandare — so cosa fare ma non riesco a iniziare", profile: "D" }
+    ]
+  },
+  {
+    text: "Immagina di essere in Italia per la prima volta. Cosa fai?",
+    options: [
+      { text: "Studio le frasi chiave la sera prima — voglio essere preparata", profile: "A" },
+      { text: "Parlo con chiunque incontro, anche a gesti", profile: "B" },
+      { text: "Ascolto la gente parlare e cerco di capire il ritmo della lingua", profile: "C" },
+      { text: "Ordino al bar, chiedo indicazioni — uso la lingua subito", profile: "D" }
+    ]
+  },
+  {
+    text: "Per te, imparare una nuova lingua è soprattutto…",
+    options: [
+      { text: "Un sistema da padroneggiare passo dopo passo", profile: "A" },
+      { text: "Un'avventura in cui buttarsi senza troppa paura", profile: "B" },
+      { text: "Un modo per capire un'altra cultura e un'altra visione del mondo", profile: "C" },
+      { text: "Uno strumento concreto da usare nella vita di tutti i giorni", profile: "D" }
+    ]
+  }
+];
+
+const profiles = {
+  A: {
+    emoji: "🗺️",
+    title: "La <em>Cartografa</em>",
+    desc: "Impari con metodo e precisione. Costruisci fondamenta solide che reggono nel tempo. Il tuo italiano sarà preciso, ricco, duraturo.",
+    url: "risultato-cartografa.html"
+  },
+  B: {
+    emoji: "⚡",
+    title: "L'<em>Esploratrice</em>",
+    desc: "Impari buttandoti. Gli errori non ti spaventano — li usi come bussola. Il tuo superpotere è il coraggio.",
+    url: "risultato-esploratrice.html"
+  },
+  C: {
+    emoji: "📖",
+    title: "La <em>Narratrice</em>",
+    desc: "Le storie ti restano dentro molto più a lungo delle regole. La tua memoria è visiva ed emotiva — e l'italiano è fatto apposta per te.",
+    url: "risultato-narratrice.html"
+  },
+  D: {
+    emoji: "🛠️",
+    title: "La <em>Costruttrice</em>",
+    desc: "Impari facendo. Ogni cosa che studi deve avere un'applicazione immediata. Quando l'italiano entra nella tua routine, diventa tuo per sempre.",
+    url: "risultato-costruttrice.html"
+  }
+};
+
+let current = 0;
+let answers = [];
+let selected = null;
+
+function renderQuestion() {
+  const q = questions[current];
+  const letters = ["A", "B", "C", "D"];
+
+  document.getElementById("q-text").textContent = q.text;
+
+  const optionsEl = document.getElementById("options");
+  optionsEl.innerHTML = "";
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement("button");
+    btn.className = "option" + (answers[current] === i ? " selected" : "");
+    btn.innerHTML = `<div class="option-letter">${letters[i]}</div><span class="option-text">${opt.text}</span>`;
+    btn.onclick = () => selectOption(i);
+    optionsEl.appendChild(btn);
+  });
+
+  selected = answers[current] !== undefined ? answers[current] : null;
+
+  const pct = Math.round((current / questions.length) * 100);
+  document.getElementById("progress-text").textContent = `Domanda ${current + 1} di ${questions.length}`;
+  document.getElementById("progress-pct").textContent = pct + "%";
+  document.getElementById("progress-fill").style.width = pct + "%";
+
+  document.getElementById("btn-back").disabled = current === 0;
+  const nextBtn = document.getElementById("btn-next");
+  if (selected !== null) { nextBtn.classList.add("active"); } else { nextBtn.classList.remove("active"); }
+  nextBtn.textContent = current === questions.length - 1 ? "Scopri il risultato →" : "Avanti →";
+}
+
+function selectOption(idx) {
+  selected = idx;
+  answers[current] = idx;
+  document.querySelectorAll(".option").forEach((el, i) => {
+    el.classList.toggle("selected", i === idx);
+  });
+  document.getElementById("btn-next").classList.add("active");
+}
+
+function goNext() {
+  if (selected === null) return;
+  if (current < questions.length - 1) {
+    current++;
+    selected = answers[current] !== undefined ? answers[current] : null;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function goBack() {
+  if (current > 0) {
+    current--;
+    selected = answers[current] !== undefined ? answers[current] : null;
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  const scores = { A: 0, B: 0, C: 0, D: 0 };
+  answers.forEach((ansIdx, qIdx) => {
+    const profile = questions[qIdx].options[ansIdx].profile;
+    scores[profile]++;
+  });
+  const winner = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+  const profile = profiles[winner];
+
+  document.getElementById("question-block").style.display = "none";
+  document.getElementById("progress-wrap").style.display = "none";
+  document.getElementById("intro").style.display = "none";
+
+  document.getElementById("result-emoji").textContent = profile.emoji;
+  document.getElementById("result-title").innerHTML = profile.title;
+  document.getElementById("result-desc").textContent = profile.desc;
+  document.getElementById("result-btn").href = profile.url;
+
+  document.getElementById("progress-fill").style.width = "100%";
+
+  const rb = document.getElementById("result-block");
+  rb.classList.add("show");
+}
+
+function restartQuiz() {
+  current = 0; answers = []; selected = null;
+  document.getElementById("question-block").style.display = "block";
+  document.getElementById("progress-wrap").style.display = "block";
+  document.getElementById("intro").style.display = "block";
+  const rb = document.getElementById("result-block");
+  rb.classList.remove("show"); rb.style.display = "none";
+  setTimeout(() => { rb.style.display = ""; }, 10);
+  renderQuestion();
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
