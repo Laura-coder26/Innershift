@@ -3,22 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Che tipo di apprenditrice sei? — InnerShift</title>
-<meta name="description" content="Scopri il tuo stile di apprendimento in 2 minuti e ricevi un piano italiano + mindset pensato solo per te.">
+<title id="page-title">Che tipo di apprenditrice sei? — InnerShift</title>
+<meta name="description" id="page-desc" content="Scopri il tuo stile di apprendimento in 2 minuti e ricevi un piano italiano + mindset pensato solo per te.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --verde: #4a7c59;
-    --verde-light: #e8f0eb;
-    --accent: #1D9E75;
-    --beige: #f5f2ec;
-    --beige-dark: #e8e3d8;
-    --testo: #1a1a1a;
-    --testo-sec: #5a5a5a;
-    --testo-ter: #9a9a9a;
+    --verde: #4a7c59; --verde-light: #e8f0eb; --accent: #1D9E75;
+    --beige: #f5f2ec; --beige-dark: #e8e3d8;
+    --testo: #1a1a1a; --testo-sec: #5a5a5a; --testo-ter: #9a9a9a;
     --font-serif: 'Libre Baskerville', Georgia, serif;
     --font-sans: 'DM Sans', sans-serif;
   }
@@ -27,52 +22,45 @@
 
   nav { position: sticky; top: 0; z-index: 100; background: var(--beige); border-bottom: 1px solid var(--beige-dark); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
   .nav-logo { font-family: var(--font-serif); font-size: 18px; color: var(--testo); text-decoration: none; letter-spacing: -0.02em; }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
   .nav-links a { font-size: 13px; color: var(--testo-sec); text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--testo); }
 
+  /* LANG SELECTOR */
+  .lang-selector { position: relative; }
+  .lang-btn { background: none; border: 1px solid var(--beige-dark); border-radius: 8px; padding: 4px 10px; font-family: var(--font-sans); font-size: 12px; font-weight: 500; color: var(--testo-sec); cursor: pointer; display: flex; align-items: center; gap: 5px; }
+  .lang-btn:hover { border-color: var(--accent); color: var(--testo); }
+  .lang-dropdown { display: none; position: absolute; top: calc(100% + 6px); right: 0; background: white; border: 1px solid var(--beige-dark); border-radius: 10px; padding: 6px; min-width: 100px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 200; }
+  .lang-dropdown.open { display: block; }
+  .lang-option { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 6px; font-size: 13px; color: var(--testo-sec); cursor: pointer; }
+  .lang-option:hover { background: var(--verde-light); color: var(--testo); }
+  .lang-option.active { color: var(--accent); font-weight: 500; }
+
   .container { max-width: 640px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
 
-  /* INTRO */
   .intro { text-align: center; margin-bottom: 3rem; opacity: 0; animation: fadeUp .7s ease forwards .1s; }
   .eyebrow { font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
   h1 { font-family: var(--font-serif); font-size: clamp(28px, 5vw, 40px); font-weight: 700; color: var(--testo); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 14px; }
   h1 em { font-style: italic; color: var(--accent); }
   .intro-sub { font-size: 16px; color: var(--testo-sec); line-height: 1.7; font-weight: 300; max-width: 480px; margin: 0 auto; }
 
-  /* PROGRESS */
   .progress-wrap { margin-bottom: 2.5rem; opacity: 0; animation: fadeUp .5s ease forwards .2s; }
   .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--testo-ter); margin-bottom: 8px; }
   .progress-bar { height: 3px; background: var(--beige-dark); border-radius: 2px; overflow: hidden; }
   .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width .4s ease; width: 0%; }
 
-  /* QUESTION */
-  .question-block { opacity: 0; animation: fadeUp .5s ease forwards .3s; }
+  .question-block { opacity: 0; animation: fadeUp .5s ease forwards .3s; transform: translateY(10px); }
   .q-text { font-family: var(--font-serif); font-size: clamp(18px, 3vw, 22px); color: var(--testo); line-height: 1.45; margin-bottom: 1.75rem; font-weight: 400; }
 
-  /* OPTIONS */
   .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
-  .option {
-    display: flex; align-items: flex-start; gap: 14px;
-    background: white; border: 1px solid var(--beige-dark);
-    border-radius: 12px; padding: 1rem 1.25rem;
-    cursor: pointer; transition: border-color .2s, background .2s;
-    text-align: left; font-family: var(--font-sans); width: 100%;
-  }
+  .option { display: flex; align-items: flex-start; gap: 14px; background: white; border: 1px solid var(--beige-dark); border-radius: 12px; padding: 1rem 1.25rem; cursor: pointer; transition: border-color .2s, background .2s; text-align: left; font-family: var(--font-sans); width: 100%; }
   .option:hover { border-color: var(--accent); background: var(--verde-light); }
   .option.selected { border-color: var(--accent); background: var(--verde-light); }
-  .option-letter {
-    width: 28px; height: 28px; border-radius: 50%;
-    border: 1px solid var(--beige-dark);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 500; color: var(--testo-ter);
-    flex-shrink: 0; transition: border-color .2s, color .2s, background .2s;
-  }
+  .option-letter { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--beige-dark); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--testo-ter); flex-shrink: 0; transition: border-color .2s, color .2s, background .2s; }
   .option.selected .option-letter { border-color: var(--accent); color: var(--accent); background: white; }
   .option-text { font-size: 15px; color: var(--testo-sec); line-height: 1.5; padding-top: 3px; font-weight: 300; }
   .option.selected .option-text { color: var(--testo); }
 
-  /* NAV BUTTONS */
   .nav-buttons { display: flex; justify-content: space-between; align-items: center; }
   .btn-back { background: none; border: 1px solid var(--beige-dark); border-radius: 10px; padding: 10px 20px; font-family: var(--font-sans); font-size: 14px; color: var(--testo-sec); cursor: pointer; transition: border-color .2s, color .2s; }
   .btn-back:hover { border-color: var(--testo-sec); color: var(--testo); }
@@ -81,7 +69,6 @@
   .btn-next.active { opacity: 1; pointer-events: all; }
   .btn-next.active:hover { background: #0F6E56; transform: translateY(-1px); }
 
-  /* RESULT */
   .result-block { display: none; text-align: center; opacity: 0; }
   .result-block.show { display: block; animation: fadeUp .6s ease forwards; }
   .result-emoji { font-size: 48px; margin-bottom: 1rem; }
@@ -99,10 +86,9 @@
   footer a:hover { color: var(--testo); }
 
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-  .question-block { transform: translateY(10px); }
-
   @media (max-width: 600px) {
-    nav { padding: 0 1.25rem; } .nav-links { display: none; }
+    nav { padding: 0 1.25rem; } .nav-links { gap: 1rem; }
+    .nav-links li:not(:last-child) { display: none; }
     .container { padding: 2.5rem 1.25rem 4rem; }
   }
 </style>
@@ -112,21 +98,32 @@
 <nav>
   <a href="index.html" class="nav-logo">InnerShift</a>
   <ul class="nav-links">
-    <li><a href="index.html#articoli">Articoli</a></li>
-    <li><a href="index.html#eventi">Eventi</a></li>
-    <li><a href="index.html#risorse">Risorse</a></li>
+    <li><a href="index.html#articoli" id="nav-articles">Articoli</a></li>
+    <li><a href="index.html#eventi" id="nav-events">Eventi</a></li>
+    <li><a href="index.html#risorse" id="nav-resources">Risorse</a></li>
     <li><a href="armocromia.html">Armocromia</a></li>
     <li><a href="shop.html">Shop</a></li>
-    <li><a href="chi-sono.html">Chi sono</a></li>
+    <li><a href="chi-sono.html" id="nav-about">Chi sono</a></li>
+    <li class="lang-selector">
+      <button class="lang-btn" id="lang-btn" onclick="toggleLang()">
+        <span id="lang-flag">🇮🇹</span><span id="lang-label">IT</span> ▾
+      </button>
+      <div class="lang-dropdown" id="lang-dropdown">
+        <div class="lang-option" onclick="setLang('it')">🇮🇹 IT</div>
+        <div class="lang-option" onclick="setLang('en')">🇬🇧 EN</div>
+        <div class="lang-option" onclick="setLang('fr')">🇫🇷 FR</div>
+        <div class="lang-option" onclick="setLang('es')">🇪🇸 ES</div>
+        <div class="lang-option" onclick="setLang('de')">🇩🇪 DE</div>
+      </div>
+    </li>
   </ul>
 </nav>
 
 <div class="container">
-
   <div class="intro" id="intro">
-    <p class="eyebrow">Test gratuito</p>
-    <h1>Che tipo di<br><em>apprenditrice</em> sei?</h1>
-    <p class="intro-sub">6 domande, 2 minuti. Scopri il tuo stile e ricevi un piano italiano + mindset pensato solo per te.</p>
+    <p class="eyebrow" id="quiz-eyebrow">Test gratuito</p>
+    <h1 id="quiz-title">Che tipo di<br><em id="quiz-title-em">apprenditrice</em> sei?</h1>
+    <p class="intro-sub" id="quiz-sub">6 domande, 2 minuti. Scopri il tuo stile e ricevi un piano italiano + mindset pensato solo per te.</p>
   </div>
 
   <div class="progress-wrap" id="progress-wrap">
@@ -141,208 +138,328 @@
     <p class="q-text" id="q-text"></p>
     <div class="options" id="options"></div>
     <div class="nav-buttons">
-      <button class="btn-back" id="btn-back" onclick="goBack()">← Indietro</button>
-      <button class="btn-next" id="btn-next" onclick="goNext()">Avanti →</button>
+      <button class="btn-back" id="btn-back" onclick="goBack()">← <span id="btn-back-label">Indietro</span></button>
+      <button class="btn-next" id="btn-next" onclick="goNext()"><span id="btn-next-label">Avanti</span> →</button>
     </div>
   </div>
 
   <div class="result-block" id="result-block">
     <div class="result-emoji" id="result-emoji"></div>
-    <p class="result-eyebrow">Il tuo profilo</p>
+    <p class="result-eyebrow" id="result-eyebrow-label">Il tuo profilo</p>
     <h2 class="result-title" id="result-title"></h2>
     <p class="result-desc" id="result-desc"></p>
-    <a href="#" id="result-btn" class="result-btn">Scopri il tuo piano →</a>
-    <button class="result-retry" onclick="restartQuiz()">Rifai il test</button>
+    <a href="#" id="result-btn" class="result-btn"></a>
+    <button class="result-retry" onclick="restartQuiz()" id="result-retry-btn">Rifai il test</button>
   </div>
-
 </div>
 
 <footer>
-  <p style="margin-bottom:8px"><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="chi-sono.html">Chi sono</a> &nbsp;·&nbsp; <a href="shop.html">Shop</a></p>
-  <p>© 2026 InnerShift · Il cambiamento parte da dentro</p>
+  <p style="margin-bottom:8px"><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="chi-sono.html" id="footer-about">Chi sono</a> &nbsp;·&nbsp; <a href="shop.html">Shop</a></p>
+  <p id="footer-copy">© 2026 InnerShift · Il cambiamento parte da dentro</p>
 </footer>
 
 <script>
-const questions = [
-  {
-    text: "Stai per imparare qualcosa di nuovo. Qual è la prima cosa che fai?",
-    options: [
-      { text: "Cerco una guida, un libro o un piano strutturato", profile: "A" },
-      { text: "Mi butto direttamente — imparo sbagliando", profile: "B" },
-      { text: "Cerco storie o esempi reali di chi l'ha fatto", profile: "C" },
-      { text: "Trovo subito un piccolo esercizio pratico da fare", profile: "D" }
-    ]
+// ── TRANSLATIONS ──────────────────────────────────────────────
+const T = {
+  it: {
+    flag:'🇮🇹', label:'IT',
+    page_title:'Che tipo di apprenditrice sei? — InnerShift',
+    nav_articles:'Articoli', nav_events:'Eventi', nav_resources:'Risorse', nav_about:'Chi sono',
+    quiz_eyebrow:'Test gratuito',
+    quiz_title:'Che tipo di', quiz_title_em:'apprenditrice', quiz_title_end:' sei?',
+    quiz_sub:'6 domande, 2 minuti. Scopri il tuo stile e ricevi un piano italiano + mindset pensato solo per te.',
+    btn_back:'Indietro', btn_next:'Avanti', btn_result:'Scopri il risultato',
+    progress_of:'di', progress_q:'Domanda',
+    result_eyebrow:'Il tuo profilo',
+    result_cta:'Scopri il tuo piano →',
+    result_retry:'Rifai il test',
+    footer_copy:'© 2026 InnerShift · Il cambiamento parte da dentro',
+    questions:[
+      { text:'Stai per imparare qualcosa di nuovo. Qual è la prima cosa che fai?',
+        options:['Cerco una guida, un libro o un piano strutturato','Mi butto direttamente — imparo sbagliando','Cerco storie o esempi reali di chi l\'ha fatto','Trovo subito un piccolo esercizio pratico da fare'] },
+      { text:'Quale di queste frasi ti descrive meglio quando studi una lingua?',
+        options:['Voglio capire le regole grammaticali prima di parlare','Parlo subito, anche se faccio errori — l\'importante è comunicare','Le parole mi restano se le collego a una storia o un\'emozione','Devo usare subito quello che imparo, altrimenti lo dimentico'] },
+      { text:'Hai 20 minuti liberi. Cosa ti viene più naturale fare per crescere?',
+        options:['Rileggo i miei appunti o completo un esercizio pianificato','Esploro qualcosa di nuovo che non conosco ancora','Leggo o guardo qualcosa che mi ispira e mi emoziona','Faccio qualcosa di concreto — anche piccolo, ma fatto'] },
+      { text:'Cosa ti blocca di più quando vuoi cambiare un\'abitudine?',
+        options:['Non avere un piano chiaro su come procedere','La paura di sbagliare o di sembrare ridicola','Non trovare la motivazione giusta o il perché profondo','Rimandare — so cosa fare ma non riesco a iniziare'] },
+      { text:'Immagina di essere in Italia per la prima volta. Cosa fai?',
+        options:['Studio le frasi chiave la sera prima — voglio essere preparata','Parlo con chiunque incontro, anche a gesti','Ascolto la gente parlare e cerco di capire il ritmo della lingua','Ordino al bar, chiedo indicazioni — uso la lingua subito'] },
+      { text:'Per te, imparare una nuova lingua è soprattutto…',
+        options:['Un sistema da padroneggiare passo dopo passo','Un\'avventura in cui buttarsi senza troppa paura','Un modo per capire un\'altra cultura e un\'altra visione del mondo','Uno strumento concreto da usare nella vita di tutti i giorni'] }
+    ],
+    profiles:{
+      A:{ emoji:'🗺️', title:'La <em>Cartografa</em>', desc:'Impari con metodo e precisione. Costruisci fondamenta solide che reggono nel tempo. Il tuo italiano sarà preciso, ricco, duraturo.', url:'risultato-cartografa.html' },
+      B:{ emoji:'⚡', title:'L\'<em>Esploratrice</em>', desc:'Impari buttandoti. Gli errori non ti spaventano — li usi come bussola. Il tuo superpotere è il coraggio.', url:'risultato-esploratrice.html' },
+      C:{ emoji:'📖', title:'La <em>Narratrice</em>', desc:'Le storie ti restano dentro molto più a lungo delle regole. La tua memoria è visiva ed emotiva — e l\'italiano è fatto apposta per te.', url:'risultato-narratrice.html' },
+      D:{ emoji:'🛠️', title:'La <em>Costruttrice</em>', desc:'Impari facendo. Ogni cosa che studi deve avere un\'applicazione immediata. Quando l\'italiano entra nella tua routine, diventa tuo per sempre.', url:'risultato-costruttrice.html' }
+    }
   },
-  {
-    text: "Quale di queste frasi ti descrive meglio quando studi una lingua?",
-    options: [
-      { text: "Voglio capire le regole grammaticali prima di parlare", profile: "A" },
-      { text: "Parlo subito, anche se faccio errori — l'importante è comunicare", profile: "B" },
-      { text: "Le parole mi restano se le collego a una storia o un'emozione", profile: "C" },
-      { text: "Devo usare subito quello che imparo, altrimenti lo dimentico", profile: "D" }
-    ]
+  en: {
+    flag:'🇬🇧', label:'EN',
+    page_title:'What type of learner are you? — InnerShift',
+    nav_articles:'Articles', nav_events:'Events', nav_resources:'Resources', nav_about:'About me',
+    quiz_eyebrow:'Free test',
+    quiz_title:'What type of', quiz_title_em:'learner', quiz_title_end:' are you?',
+    quiz_sub:'6 questions, 2 minutes. Discover your style and receive an Italian + mindset plan made just for you.',
+    btn_back:'Back', btn_next:'Next', btn_result:'See my result',
+    progress_of:'of', progress_q:'Question',
+    result_eyebrow:'Your profile',
+    result_cta:'Discover your plan →',
+    result_retry:'Retake the test',
+    footer_copy:'© 2026 InnerShift · Change starts from within',
+    questions:[
+      { text:'You\'re about to learn something new. What\'s the first thing you do?',
+        options:['I look for a guide, book or structured plan','I dive straight in — I learn by making mistakes','I look for real stories or examples from people who\'ve done it','I find a small practical exercise to do right away'] },
+      { text:'Which of these best describes you when studying a language?',
+        options:['I want to understand grammar rules before speaking','I speak immediately, even with mistakes — communication is what matters','Words stick if I connect them to a story or emotion','I need to use what I learn right away, or I forget it'] },
+      { text:'You have 20 free minutes. What comes most naturally to help you grow?',
+        options:['I review my notes or complete a planned exercise','I explore something new that I don\'t know yet','I read or watch something that inspires and moves me','I do something concrete — even small, but done'] },
+      { text:'What holds you back most when you want to change a habit?',
+        options:['Not having a clear plan on how to proceed','Fear of making mistakes or looking foolish','Not finding the right motivation or the deep reason why','Procrastinating — I know what to do but can\'t start'] },
+      { text:'Imagine you\'re in Italy for the first time. What do you do?',
+        options:['I study key phrases the night before — I want to be prepared','I talk to everyone I meet, even with gestures','I listen to people talk and try to understand the rhythm of the language','I order at the bar, ask for directions — I use the language straight away'] },
+      { text:'For you, learning a new language is above all…',
+        options:['A system to master step by step','An adventure to dive into without too much fear','A way to understand another culture and worldview','A concrete tool to use in everyday life'] }
+    ],
+    profiles:{
+      A:{ emoji:'🗺️', title:'The <em>Cartographer</em>', desc:'You learn with method and precision. You build solid foundations that stand the test of time. Your Italian will be accurate, rich and lasting.', url:'risultato-cartografa.html' },
+      B:{ emoji:'⚡', title:'The <em>Explorer</em>', desc:'You learn by diving in. Mistakes don\'t scare you — you use them as a compass. Your superpower is courage.', url:'risultato-esploratrice.html' },
+      C:{ emoji:'📖', title:'The <em>Storyteller</em>', desc:'Stories stay with you far longer than rules. Your memory is visual and emotional — and Italian was made for you.', url:'risultato-narratrice.html' },
+      D:{ emoji:'🛠️', title:'The <em>Builder</em>', desc:'You learn by doing. Everything you study needs an immediate application. When Italian enters your daily routine, it becomes yours forever.', url:'risultato-costruttrice.html' }
+    }
   },
-  {
-    text: "Hai 20 minuti liberi. Cosa ti viene più naturale fare per crescere?",
-    options: [
-      { text: "Rileggo i miei appunti o completo un esercizio pianificato", profile: "A" },
-      { text: "Esploro qualcosa di nuovo che non conosco ancora", profile: "B" },
-      { text: "Leggo o guardo qualcosa che mi ispira e mi emoziona", profile: "C" },
-      { text: "Faccio qualcosa di concreto — anche piccolo, ma fatto", profile: "D" }
-    ]
+  fr: {
+    flag:'🇫🇷', label:'FR',
+    page_title:'Quel type d\'apprenante êtes-vous ? — InnerShift',
+    nav_articles:'Articles', nav_events:'Événements', nav_resources:'Ressources', nav_about:'Qui suis-je',
+    quiz_eyebrow:'Test gratuit',
+    quiz_title:'Quel type d\'', quiz_title_em:'apprenante', quiz_title_end:' êtes-vous ?',
+    quiz_sub:'6 questions, 2 minutes. Découvrez votre style et recevez un plan italien + mindset conçu rien que pour vous.',
+    btn_back:'Retour', btn_next:'Suivant', btn_result:'Voir mon résultat',
+    progress_of:'sur', progress_q:'Question',
+    result_eyebrow:'Votre profil',
+    result_cta:'Découvrez votre plan →',
+    result_retry:'Refaire le test',
+    footer_copy:'© 2026 InnerShift · Le changement vient de l\'intérieur',
+    questions:[
+      { text:'Vous êtes sur le point d\'apprendre quelque chose de nouveau. Quelle est la première chose que vous faites ?',
+        options:['Je cherche un guide, un livre ou un plan structuré','Je me lance directement — j\'apprends en faisant des erreurs','Je cherche des histoires ou des exemples réels de personnes qui l\'ont fait','Je trouve tout de suite un petit exercice pratique à faire'] },
+      { text:'Laquelle de ces phrases vous décrit le mieux quand vous étudiez une langue ?',
+        options:['Je veux comprendre les règles grammaticales avant de parler','Je parle immédiatement, même si je fais des erreurs — l\'important c\'est de communiquer','Les mots restent si je les connecte à une histoire ou une émotion','Je dois utiliser immédiatement ce que j\'apprends, sinon je l\'oublie'] },
+      { text:'Vous avez 20 minutes libres. Qu\'est-ce qui vous vient le plus naturellement pour grandir ?',
+        options:['Je relis mes notes ou complète un exercice planifié','J\'explore quelque chose de nouveau que je ne connais pas encore','Je lis ou regarde quelque chose qui m\'inspire et m\'émeut','Je fais quelque chose de concret — même petit, mais fait'] },
+      { text:'Qu\'est-ce qui vous bloque le plus quand vous voulez changer une habitude ?',
+        options:['Ne pas avoir de plan clair sur la façon de procéder','La peur de faire des erreurs ou de paraître ridicule','Ne pas trouver la bonne motivation ou la raison profonde','Procrastiner — je sais quoi faire mais je n\'arrive pas à commencer'] },
+      { text:'Imaginez que vous êtes en Italie pour la première fois. Que faites-vous ?',
+        options:['J\'étudie les phrases clés la veille — je veux être préparée','Je parle à tout le monde, même avec des gestes','J\'écoute les gens parler et j\'essaie de comprendre le rythme de la langue','Je commande au bar, demande des directions — j\'utilise la langue tout de suite'] },
+      { text:'Pour vous, apprendre une nouvelle langue c\'est avant tout…',
+        options:['Un système à maîtriser pas à pas','Une aventure dans laquelle se lancer sans trop de peur','Une façon de comprendre une autre culture et vision du monde','Un outil concret à utiliser dans la vie quotidienne'] }
+    ],
+    profiles:{
+      A:{ emoji:'🗺️', title:'La <em>Cartographe</em>', desc:'Vous apprenez avec méthode et précision. Vous construisez des bases solides qui tiennent dans le temps. Votre italien sera précis, riche et durable.', url:'risultato-cartografa.html' },
+      B:{ emoji:'⚡', title:'L\'<em>Exploratrice</em>', desc:'Vous apprenez en vous lançant. Les erreurs ne vous font pas peur — vous les utilisez comme boussole. Votre superpouvoir est le courage.', url:'risultato-esploratrice.html' },
+      C:{ emoji:'📖', title:'La <em>Narratrice</em>', desc:'Les histoires restent en vous bien plus longtemps que les règles. Votre mémoire est visuelle et émotionnelle — et l\'italien est fait pour vous.', url:'risultato-narratrice.html' },
+      D:{ emoji:'🛠️', title:'La <em>Bâtisseuse</em>', desc:'Vous apprenez en faisant. Tout ce que vous étudiez doit avoir une application immédiate. Quand l\'italien entre dans votre routine, il devient vôtre pour toujours.', url:'risultato-costruttrice.html' }
+    }
   },
-  {
-    text: "Cosa ti blocca di più quando vuoi cambiare un'abitudine?",
-    options: [
-      { text: "Non avere un piano chiaro su come procedere", profile: "A" },
-      { text: "La paura di sbagliare o di sembrare ridicola", profile: "B" },
-      { text: "Non trovare la motivazione giusta o il perché profondo", profile: "C" },
-      { text: "Rimandare — so cosa fare ma non riesco a iniziare", profile: "D" }
-    ]
+  es: {
+    flag:'🇪🇸', label:'ES',
+    page_title:'¿Qué tipo de aprendiz eres? — InnerShift',
+    nav_articles:'Artículos', nav_events:'Eventos', nav_resources:'Recursos', nav_about:'Quién soy',
+    quiz_eyebrow:'Test gratuito',
+    quiz_title:'¿Qué tipo de', quiz_title_em:'aprendiz', quiz_title_end:' eres?',
+    quiz_sub:'6 preguntas, 2 minutos. Descubre tu estilo y recibe un plan italiano + mindset pensado solo para ti.',
+    btn_back:'Atrás', btn_next:'Siguiente', btn_result:'Ver mi resultado',
+    progress_of:'de', progress_q:'Pregunta',
+    result_eyebrow:'Tu perfil',
+    result_cta:'Descubre tu plan →',
+    result_retry:'Repetir el test',
+    footer_copy:'© 2026 InnerShift · El cambio viene desde dentro',
+    questions:[
+      { text:'Estás a punto de aprender algo nuevo. ¿Qué es lo primero que haces?',
+        options:['Busco una guía, un libro o un plan estructurado','Me lanzo directamente — aprendo cometiendo errores','Busco historias o ejemplos reales de personas que lo han hecho','Encuentro enseguida un pequeño ejercicio práctico que hacer'] },
+      { text:'¿Cuál de estas frases te describe mejor cuando estudias un idioma?',
+        options:['Quiero entender las reglas gramaticales antes de hablar','Hablo inmediatamente, aunque cometa errores — lo importante es comunicarse','Las palabras se quedan si las conecto con una historia o emoción','Necesito usar de inmediato lo que aprendo, o lo olvido'] },
+      { text:'Tienes 20 minutos libres. ¿Qué te sale más natural para crecer?',
+        options:['Repaso mis apuntes o completo un ejercicio planificado','Exploro algo nuevo que aún no conozco','Leo o veo algo que me inspira y me emociona','Hago algo concreto — aunque sea pequeño, pero hecho'] },
+      { text:'¿Qué te bloquea más cuando quieres cambiar un hábito?',
+        options:['No tener un plan claro sobre cómo proceder','El miedo a equivocarse o parecer ridícula','No encontrar la motivación adecuada o el porqué profundo','Posponer — sé qué hacer pero no consigo empezar'] },
+      { text:'Imagina que estás en Italia por primera vez. ¿Qué haces?',
+        options:['Estudio las frases clave la noche anterior — quiero estar preparada','Hablo con cualquiera que encuentre, incluso con gestos','Escucho a la gente hablar e intento entender el ritmo del idioma','Pido en el bar, pregunto direcciones — uso el idioma de inmediato'] },
+      { text:'Para ti, aprender un nuevo idioma es sobre todo…',
+        options:['Un sistema que dominar paso a paso','Una aventura en la que lanzarse sin demasiado miedo','Una forma de entender otra cultura y visión del mundo','Una herramienta concreta para usar en la vida cotidiana'] }
+    ],
+    profiles:{
+      A:{ emoji:'🗺️', title:'La <em>Cartógrafa</em>', desc:'Aprendes con método y precisión. Construyes bases sólidas que perduran en el tiempo. Tu italiano será preciso, rico y duradero.', url:'risultato-cartografa.html' },
+      B:{ emoji:'⚡', title:'La <em>Exploradora</em>', desc:'Aprendes lanzándote. Los errores no te asustan — los usas como brújula. Tu superpoder es el coraje.', url:'risultato-esploratrice.html' },
+      C:{ emoji:'📖', title:'La <em>Narradora</em>', desc:'Las historias se quedan en ti mucho más que las reglas. Tu memoria es visual y emocional — y el italiano está hecho para ti.', url:'risultato-narratrice.html' },
+      D:{ emoji:'🛠️', title:'La <em>Constructora</em>', desc:'Aprendes haciendo. Todo lo que estudias necesita una aplicación inmediata. Cuando el italiano entra en tu rutina, se convierte en tuyo para siempre.', url:'risultato-costruttrice.html' }
+    }
   },
-  {
-    text: "Immagina di essere in Italia per la prima volta. Cosa fai?",
-    options: [
-      { text: "Studio le frasi chiave la sera prima — voglio essere preparata", profile: "A" },
-      { text: "Parlo con chiunque incontro, anche a gesti", profile: "B" },
-      { text: "Ascolto la gente parlare e cerco di capire il ritmo della lingua", profile: "C" },
-      { text: "Ordino al bar, chiedo indicazioni — uso la lingua subito", profile: "D" }
-    ]
-  },
-  {
-    text: "Per te, imparare una nuova lingua è soprattutto…",
-    options: [
-      { text: "Un sistema da padroneggiare passo dopo passo", profile: "A" },
-      { text: "Un'avventura in cui buttarsi senza troppa paura", profile: "B" },
-      { text: "Un modo per capire un'altra cultura e un'altra visione del mondo", profile: "C" },
-      { text: "Uno strumento concreto da usare nella vita di tutti i giorni", profile: "D" }
-    ]
-  }
-];
-
-const profiles = {
-  A: {
-    emoji: "🗺️",
-    title: "La <em>Cartografa</em>",
-    desc: "Impari con metodo e precisione. Costruisci fondamenta solide che reggono nel tempo. Il tuo italiano sarà preciso, ricco, duraturo.",
-    url: "risultato-cartografa.html"
-  },
-  B: {
-    emoji: "⚡",
-    title: "L'<em>Esploratrice</em>",
-    desc: "Impari buttandoti. Gli errori non ti spaventano — li usi come bussola. Il tuo superpotere è il coraggio.",
-    url: "risultato-esploratrice.html"
-  },
-  C: {
-    emoji: "📖",
-    title: "La <em>Narratrice</em>",
-    desc: "Le storie ti restano dentro molto più a lungo delle regole. La tua memoria è visiva ed emotiva — e l'italiano è fatto apposta per te.",
-    url: "risultato-narratrice.html"
-  },
-  D: {
-    emoji: "🛠️",
-    title: "La <em>Costruttrice</em>",
-    desc: "Impari facendo. Ogni cosa che studi deve avere un'applicazione immediata. Quando l'italiano entra nella tua routine, diventa tuo per sempre.",
-    url: "risultato-costruttrice.html"
+  de: {
+    flag:'🇩🇪', label:'DE',
+    page_title:'Welcher Lerntyp bist du? — InnerShift',
+    nav_articles:'Artikel', nav_events:'Veranstaltungen', nav_resources:'Ressourcen', nav_about:'Über mich',
+    quiz_eyebrow:'Kostenloser Test',
+    quiz_title:'Welcher', quiz_title_em:'Lerntyp', quiz_title_end:' bist du?',
+    quiz_sub:'6 Fragen, 2 Minuten. Entdecke deinen Stil und erhalte einen Italienisch + Mindset-Plan, der nur für dich gemacht ist.',
+    btn_back:'Zurück', btn_next:'Weiter', btn_result:'Mein Ergebnis sehen',
+    progress_of:'von', progress_q:'Frage',
+    result_eyebrow:'Dein Profil',
+    result_cta:'Entdecke deinen Plan →',
+    result_retry:'Test wiederholen',
+    footer_copy:'© 2026 InnerShift · Veränderung beginnt von innen',
+    questions:[
+      { text:'Du stehst kurz davor, etwas Neues zu lernen. Was ist das Erste, was du tust?',
+        options:['Ich suche einen Leitfaden, ein Buch oder einen strukturierten Plan','Ich tauche direkt ein — ich lerne durch Fehler','Ich suche nach echten Geschichten oder Beispielen von Menschen, die es getan haben','Ich finde sofort eine kleine praktische Übung zum Machen'] },
+      { text:'Welcher dieser Sätze beschreibt dich am besten, wenn du eine Sprache lernst?',
+        options:['Ich möchte die Grammatikregeln verstehen, bevor ich spreche','Ich spreche sofort, auch wenn ich Fehler mache — das Wichtigste ist die Kommunikation','Wörter bleiben, wenn ich sie mit einer Geschichte oder Emotion verbinde','Ich muss sofort nutzen, was ich lerne, sonst vergesse ich es'] },
+      { text:'Du hast 20 freie Minuten. Was kommt dir am natürlichsten, um zu wachsen?',
+        options:['Ich lese meine Notizen oder schließe eine geplante Übung ab','Ich erkunde etwas Neues, das ich noch nicht kenne','Ich lese oder schaue etwas, das mich inspiriert und bewegt','Ich tue etwas Konkretes — auch klein, aber erledigt'] },
+      { text:'Was hält dich am meisten zurück, wenn du eine Gewohnheit ändern möchtest?',
+        options:['Keinen klaren Plan zu haben, wie ich vorgehen soll','Die Angst, Fehler zu machen oder lächerlich auszusehen','Die richtige Motivation oder den tiefen Grund nicht zu finden','Aufschieben — ich weiß was zu tun ist, aber kann nicht anfangen'] },
+      { text:'Stell dir vor, du bist zum ersten Mal in Italien. Was machst du?',
+        options:['Ich lerne die Schlüsselsätze am Abend davor — ich möchte vorbereitet sein','Ich spreche mit jedem, dem ich begegne, sogar mit Gesten','Ich höre den Leuten beim Reden zu und versuche den Rhythmus der Sprache zu verstehen','Ich bestelle an der Bar, frage nach dem Weg — ich benutze die Sprache sofort'] },
+      { text:'Für dich bedeutet eine neue Sprache lernen vor allem…',
+        options:['Ein System, das man Schritt für Schritt beherrschen muss','Ein Abenteuer, in das man sich ohne zu viel Angst stürzt','Eine Möglichkeit, eine andere Kultur und Weltanschauung zu verstehen','Ein konkretes Werkzeug für den Alltag'] }
+    ],
+    profiles:{
+      A:{ emoji:'🗺️', title:'Die <em>Kartografin</em>', desc:'Du lernst mit Methode und Präzision. Du baust solide Grundlagen, die der Zeit standhalten. Dein Italienisch wird präzise, reich und dauerhaft.', url:'risultato-cartografa.html' },
+      B:{ emoji:'⚡', title:'Die <em>Entdeckerin</em>', desc:'Du lernst, indem du dich hineinwirfst. Fehler schrecken dich nicht ab — du nutzt sie als Kompass. Dein Superkraft ist der Mut.', url:'risultato-esploratrice.html' },
+      C:{ emoji:'📖', title:'Die <em>Geschichtenerzählerin</em>', desc:'Geschichten bleiben viel länger in dir als Regeln. Dein Gedächtnis ist visuell und emotional — und Italienisch ist genau für dich gemacht.', url:'risultato-narratrice.html' },
+      D:{ emoji:'🛠️', title:'Die <em>Macherin</em>', desc:'Du lernst durch Tun. Alles, was du lernst, braucht eine sofortige Anwendung. Wenn Italienisch in deine Routine eingeht, gehört es dir für immer.', url:'risultato-costruttrice.html' }
+    }
   }
 };
 
-let current = 0;
-let answers = [];
-let selected = null;
+// ── LANG ──────────────────────────────────────────────────────
+let currentLang = localStorage.getItem('innershift_lang') || 'it';
+let current = 0, answers = [], selected = null;
 
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('innershift_lang', lang);
+  document.getElementById('lang-dropdown').classList.remove('open');
+  applyLang();
+  renderQuestion();
+}
+
+function toggleLang() {
+  document.getElementById('lang-dropdown').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.lang-selector')) {
+    document.getElementById('lang-dropdown').classList.remove('open');
+  }
+});
+
+function applyLang() {
+  const t = T[currentLang];
+  document.getElementById('lang-flag').textContent = t.flag;
+  document.getElementById('lang-label').textContent = t.label;
+  document.title = t.page_title;
+  document.getElementById('page-title').textContent = t.page_title;
+  document.getElementById('nav-articles').textContent = t.nav_articles;
+  document.getElementById('nav-events').textContent = t.nav_events;
+  document.getElementById('nav-resources').textContent = t.nav_resources;
+  document.getElementById('nav-about').textContent = t.nav_about;
+  document.getElementById('quiz-eyebrow').textContent = t.quiz_eyebrow;
+  document.getElementById('quiz-title').innerHTML = t.quiz_title + '<br><em id="quiz-title-em">' + t.quiz_title_em + '</em>' + t.quiz_title_end;
+  document.getElementById('quiz-sub').textContent = t.quiz_sub;
+  document.getElementById('btn-back-label').textContent = t.btn_back;
+  document.getElementById('result-eyebrow-label').textContent = t.result_eyebrow;
+  document.getElementById('result-retry-btn').textContent = t.result_retry;
+  document.getElementById('footer-about').textContent = t.nav_about;
+  document.getElementById('footer-copy').textContent = t.footer_copy;
+  // highlight active lang
+  document.querySelectorAll('.lang-option').forEach(el => {
+    el.classList.toggle('active', el.textContent.trim().includes(t.label));
+  });
+}
+
+// ── QUIZ ──────────────────────────────────────────────────────
 function renderQuestion() {
-  const q = questions[current];
-  const letters = ["A", "B", "C", "D"];
-
-  document.getElementById("q-text").textContent = q.text;
-
-  const optionsEl = document.getElementById("options");
-  optionsEl.innerHTML = "";
+  const t = T[currentLang];
+  const q = t.questions[current];
+  const letters = ['A','B','C','D'];
+  document.getElementById('q-text').textContent = q.text;
+  const optionsEl = document.getElementById('options');
+  optionsEl.innerHTML = '';
   q.options.forEach((opt, i) => {
-    const btn = document.createElement("button");
-    btn.className = "option" + (answers[current] === i ? " selected" : "");
-    btn.innerHTML = `<div class="option-letter">${letters[i]}</div><span class="option-text">${opt.text}</span>`;
+    const btn = document.createElement('button');
+    btn.className = 'option' + (answers[current] === i ? ' selected' : '');
+    btn.innerHTML = `<div class="option-letter">${letters[i]}</div><span class="option-text">${opt}</span>`;
     btn.onclick = () => selectOption(i);
     optionsEl.appendChild(btn);
   });
-
   selected = answers[current] !== undefined ? answers[current] : null;
-
-  const pct = Math.round((current / questions.length) * 100);
-  document.getElementById("progress-text").textContent = `Domanda ${current + 1} di ${questions.length}`;
-  document.getElementById("progress-pct").textContent = pct + "%";
-  document.getElementById("progress-fill").style.width = pct + "%";
-
-  document.getElementById("btn-back").disabled = current === 0;
-  const nextBtn = document.getElementById("btn-next");
-  if (selected !== null) { nextBtn.classList.add("active"); } else { nextBtn.classList.remove("active"); }
-  nextBtn.textContent = current === questions.length - 1 ? "Scopri il risultato →" : "Avanti →";
+  const total = t.questions.length;
+  const pct = Math.round((current / total) * 100);
+  document.getElementById('progress-text').textContent = `${t.progress_q} ${current + 1} ${t.progress_of} ${total}`;
+  document.getElementById('progress-pct').textContent = pct + '%';
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('btn-back').disabled = current === 0;
+  const nextBtn = document.getElementById('btn-next');
+  const nextLabel = document.getElementById('btn-next-label');
+  nextLabel.textContent = current === total - 1 ? t.btn_result : t.btn_next;
+  if (selected !== null) { nextBtn.classList.add('active'); } else { nextBtn.classList.remove('active'); }
 }
 
 function selectOption(idx) {
-  selected = idx;
-  answers[current] = idx;
-  document.querySelectorAll(".option").forEach((el, i) => {
-    el.classList.toggle("selected", i === idx);
-  });
-  document.getElementById("btn-next").classList.add("active");
+  selected = idx; answers[current] = idx;
+  document.querySelectorAll('.option').forEach((el, i) => el.classList.toggle('selected', i === idx));
+  document.getElementById('btn-next').classList.add('active');
 }
 
 function goNext() {
   if (selected === null) return;
-  if (current < questions.length - 1) {
-    current++;
-    selected = answers[current] !== undefined ? answers[current] : null;
-    renderQuestion();
-  } else {
-    showResult();
-  }
+  const total = T[currentLang].questions.length;
+  if (current < total - 1) { current++; selected = answers[current] !== undefined ? answers[current] : null; renderQuestion(); }
+  else { showResult(); }
 }
 
 function goBack() {
-  if (current > 0) {
-    current--;
-    selected = answers[current] !== undefined ? answers[current] : null;
-    renderQuestion();
-  }
+  if (current > 0) { current--; selected = answers[current] !== undefined ? answers[current] : null; renderQuestion(); }
 }
 
 function showResult() {
-  const scores = { A: 0, B: 0, C: 0, D: 0 };
+  const scores = {A:0,B:0,C:0,D:0};
+  const t = T[currentLang];
   answers.forEach((ansIdx, qIdx) => {
-    const profile = questions[qIdx].options[ansIdx].profile;
-    scores[profile]++;
+    const profileMap = ['A','B','C','D'];
+    scores[profileMap[ansIdx]]++;
   });
-  const winner = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
-  const profile = profiles[winner];
-
-  document.getElementById("question-block").style.display = "none";
-  document.getElementById("progress-wrap").style.display = "none";
-  document.getElementById("intro").style.display = "none";
-
-  document.getElementById("result-emoji").textContent = profile.emoji;
-  document.getElementById("result-title").innerHTML = profile.title;
-  document.getElementById("result-desc").textContent = profile.desc;
-  document.getElementById("result-btn").href = profile.url;
-
-  document.getElementById("progress-fill").style.width = "100%";
-
-  const rb = document.getElementById("result-block");
-  rb.classList.add("show");
+  const winner = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+  const profile = t.profiles[winner];
+  document.getElementById('question-block').style.display = 'none';
+  document.getElementById('progress-wrap').style.display = 'none';
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('result-emoji').textContent = profile.emoji;
+  document.getElementById('result-title').innerHTML = profile.title;
+  document.getElementById('result-desc').textContent = profile.desc;
+  document.getElementById('result-btn').href = profile.url;
+  document.getElementById('result-btn').textContent = t.result_cta;
+  document.getElementById('result-eyebrow-label').textContent = t.result_eyebrow;
+  document.getElementById('result-retry-btn').textContent = t.result_retry;
+  document.getElementById('progress-fill').style.width = '100%';
+  const rb = document.getElementById('result-block');
+  rb.classList.add('show');
 }
 
 function restartQuiz() {
   current = 0; answers = []; selected = null;
-  document.getElementById("question-block").style.display = "block";
-  document.getElementById("progress-wrap").style.display = "block";
-  document.getElementById("intro").style.display = "block";
-  const rb = document.getElementById("result-block");
-  rb.classList.remove("show"); rb.style.display = "none";
-  setTimeout(() => { rb.style.display = ""; }, 10);
+  document.getElementById('question-block').style.display = 'block';
+  document.getElementById('progress-wrap').style.display = 'block';
+  document.getElementById('intro').style.display = 'block';
+  const rb = document.getElementById('result-block');
+  rb.classList.remove('show'); rb.style.display = 'none';
+  setTimeout(() => { rb.style.display = ''; }, 10);
   renderQuestion();
 }
 
+// ── INIT ──────────────────────────────────────────────────────
+applyLang();
 renderQuestion();
 </script>
 </body>
