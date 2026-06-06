@@ -591,6 +591,18 @@ function subscribeNewsletter(e) {
 <script src="js/main.js"></script>
 
   <!-- COOKIE BANNER -->
+  <!-- POPUP QUIZ -->
+  <div id="quiz-popup" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.45); align-items:center; justify-content:center; padding:1rem;">
+    <div style="background:#f5f2ec; border-radius:20px; max-width:420px; width:100%; padding:2rem 2rem 1.5rem; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+      <button onclick="closeQuizPopup()" style="position:absolute; top:14px; right:16px; background:none; border:none; font-size:20px; cursor:pointer; color:#9a9a9a; line-height:1;">✕</button>
+      <p style="font-size:11px; font-weight:500; color:#1D9E75; letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px;">Test gratuito</p>
+      <p style="font-family:'Libre Baskerville',Georgia,serif; font-size:22px; font-weight:700; color:#1a1a1a; line-height:1.25; margin-bottom:10px;">Che tipo di<br><em style="font-style:italic; color:#1D9E75;">apprenditrice</em> sei?</p>
+      <p style="font-size:14px; color:#5a5a5a; line-height:1.6; margin-bottom:1.5rem; font-weight:300;">6 domande, 2 minuti. Scopri il tuo stile e ricevi un piano italiano + mindset pensato solo per te.</p>
+      <a href="quiz.html" style="display:block; background:#1D9E75; color:white; text-align:center; border-radius:10px; padding:12px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:500; text-decoration:none; margin-bottom:10px; transition:background .2s;" onmouseover="this.style.background='#0F6E56'" onmouseout="this.style.background='#1D9E75'">Fai il test gratis →</a>
+      <p style="font-size:11px; color:#9a9a9a; text-align:center; cursor:pointer;" onclick="closeQuizPopup()">No grazie, per ora salto</p>
+    </div>
+  </div>
+
   <div id="cookie-banner" style="display:none;">
     <div class="cookie-inner">
       <div class="cookie-text">
@@ -623,6 +635,18 @@ function subscribeNewsletter(e) {
   }
   window.addEventListener('load', showCookieBanner);
   // Se ha già rifiutato, disabilita GA
+  // POPUP QUIZ
+  function closeQuizPopup() {
+    document.getElementById('quiz-popup').style.display = 'none';
+    localStorage.setItem('innershift_quiz_popup', 'closed');
+  }
+  if (!localStorage.getItem('innershift_quiz_popup')) {
+    setTimeout(function() {
+      var popup = document.getElementById('quiz-popup');
+      popup.style.display = 'flex';
+    }, 8000);
+  }
+
   if (localStorage.getItem('innershift_cookie_choice') === 'declined') {
     window['ga-disable-G-VJ0VPEPVEX'] = true;
   }
