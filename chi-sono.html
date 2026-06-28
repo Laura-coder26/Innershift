@@ -381,8 +381,10 @@
     }
     .cs-video-embed-vertical {
       position: relative;
-      padding-bottom: 177.78%; /* 9:16 */
-      height: 0;
+      max-width: 260px;
+      max-height: 460px;
+      margin: 0 auto;
+      aspect-ratio: 9/16;
       overflow: hidden;
       background: #000;
     }
